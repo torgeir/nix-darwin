@@ -15,8 +15,12 @@ let
     };
 in {
 
+  # find urls and sha256 by
   # curl -s --head https://addons.mozilla.org/firefox/downloads/latest/darkreader/ | grep location | awk '{print $2}' | pbcopy
   # nix-hash --type sha256 --flat <(curl -L -s https://addons.mozilla.org/firefox/downloads/latest/darkreader/)
+  #
+  # find ids by installing a plugin manually then going to about:debugging#/runtime/this-firefox
+  # remove it then add it here
 
   darkreader = buildExtension {
     pname = "darkreader";
@@ -53,4 +57,23 @@ in {
       "https://addons.mozilla.org/firefox/downloads/file/4191523/vimium_ff-2.0.6.xpi";
     sha256 = "94a2d7e88596b65891747d48837deb5440780d57db7ae330d1d7d43d5fe64922";
   };
+
+  multi-account-containers = buildExtension {
+    pname = "multi-account-containers";
+    version = "8.1.3";
+    id = "@testpilot-containers";
+    url =
+      "https://addons.mozilla.org/firefox/downloads/file/4186050/multi_account_containers-8.1.3.xpi";
+    sha256 = "33edd98d0fc7d47fa310f214f897ce4dfe268b0f868c9d7f32b4ca50573df85c";
+  };
+
+  firefox-color = buildExtension {
+    pname = "firefox-color";
+    version = "2.1.7";
+    id = "FirefoxColor@mozilla.com";
+    url =
+      "https://addons.mozilla.org/firefox/downloads/file/3643624/firefox_color-2.1.7.xpi";
+    sha256 = "b7fb07b6788f7233dd6223e780e189b4c7b956c25c40493c28d7020493249292";
+  };
+
 }

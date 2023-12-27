@@ -11,6 +11,7 @@ in {
     enable = true;
     # https://github.com/bandithedoge/nixpkgs-firefox-darwin/blob/main/overlay.nix
     package = pkgs.firefox-bin;
+    # open -na Firefox
     profiles.torgeir = {
       id = 0;
       settings = { };
@@ -22,6 +23,12 @@ in {
         extensions.firefox-color
         extensions.onepassword-x-password-manager
       ];
+    };
+    # open -na Firefox --args -P work
+    profiles.work = {
+      id = 1;
+      settings = { };
+      extensions = [ extensions.vimium-ff extensions.ublock-origin ];
     };
 
     policies = {
