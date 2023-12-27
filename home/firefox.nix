@@ -18,6 +18,8 @@ in {
         extensions.darkreader
         extensions.vimium-ff
         extensions.ublock-origin
+        extensions.multi-account-containers
+        extensions.firefox-color
         extensions.onepassword-x-password-manager
       ];
     };
