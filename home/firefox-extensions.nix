@@ -1,5 +1,6 @@
 { fetchurl, stdenv, lib, pkgs, ... }:
 let
+  # Copyright (C) 2019-2022 Robert Helgesson
   buildExtension = { pname, version, id, url, sha256, ... }:
     stdenv.mkDerivation {
       name = "${pname}-${version}";
