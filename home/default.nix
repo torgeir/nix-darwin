@@ -36,6 +36,7 @@
     htop
     watch
 
+    tmux
     yabai
     skhd
   ];
@@ -43,7 +44,7 @@
   home.file = let
     dotfiles = builtins.fetchGit {
       url = "https://github.com/torgeir/dotfiles";
-      rev = "1f0cb57034e2a4fe5dd246e5c8f25da2602786de";
+      rev = "04ed02e76eebd4c99a13bd26881479d79e046d8b";
     };
   in {
     ".config/dotfiles".source = dotfiles;
@@ -59,9 +60,10 @@
 
     ".zsh".source = dotfiles + "/zsh/";
     ".zshrc".source = dotfiles + "/zshrc";
+    ".inputrc".source = dotfiles + "/inputrc";
     ".zprofile".source = dotfiles + "/profile";
     ".p10k.zsh".source = dotfiles + "/p10k.zsh";
     ".gitconfig".source = dotfiles + "/gitconfig";
-    ".inputrc".source = dotfiles + "/inputrc";
+    ".tmux.conf".source = dotfiles + "/tmux.conf";
   };
 }
