@@ -36,7 +36,7 @@
     htop
     watch
 
-    alacritty-head
+    alacritty
 
     tmux
     yabai

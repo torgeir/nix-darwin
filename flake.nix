@@ -14,9 +14,8 @@
 
     nixpkgs-firefox-darwin.url = "github:bandithedoge/nixpkgs-firefox-darwin";
 
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-
-    alacritty-head.url = "github:shnarazk/flakes?dir=alacritty-head";
+    # nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    # alacritty-head.url = "github:shnarazk/flakes?dir=alacritty-head";
   };
 
   outputs = inputs@{ self, nixpkgs, darwin, home-manager, ... }: {
@@ -32,16 +31,16 @@
             # use selected unstable packages with pkgs.unstable.xyz
             # https://discourse.nixos.org/t/how-to-use-nixos-unstable-for-some-packages-only/36337
             # https://github.com/ne9z/dotfiles-flake/blob/d3159df136294675ccea340623c7c363b3584e0d/configuration.nix
-            (final: prev: {
-              unstable =
-                import inputs.nixpkgs-unstable { system = prev.system; };
-            })
+            # (final: prev: {
+            #   unstable =
+            #     import inputs.nixpkgs-unstable { system = prev.system; };
+            # })
 
             # https://github.com/shnarazk/flakes/blob/e21c982072c9e4ac92f6dec72ed8bc6d10c65b21/flake.nix
-            (final: prev: {
-              alacritty-head =
-                inputs.alacritty-head.packages.${prev.system}.default;
-            })
+            # (final: prev: {
+            #   alacritty-head =
+            #     inputs.alacritty-head.packages.${prev.system}.default;
+            # })
           ];
         }
         ./modules/nix-core.nix
