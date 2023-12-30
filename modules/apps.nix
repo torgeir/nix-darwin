@@ -46,6 +46,9 @@
     masApps = {
       amphetamine = 937984704;
       kindle = 302584613;
+
+      # useful for debugging macos key codes
+      #key-codes = 414568915;
     };
   };
 }
