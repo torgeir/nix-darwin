@@ -6,6 +6,7 @@
   # import sub modules
   imports = [
     # ./copy-home-manager-symlinked-apps.nix
+    ./terminal.nix
     ./autojump.nix
     ./direnv.nix
     ./git.nix
@@ -36,8 +37,6 @@
     htop
     watch
 
-    alacritty
-
     tmux
     yabai
     skhd
@@ -46,7 +45,7 @@
   home.file = let
     dotfiles = builtins.fetchGit {
       url = "https://github.com/torgeir/dotfiles";
-      rev = "5a3a5f4d029c03620f1b6a5647818795428787fe";
+      rev = "61f0fee98fae02fcacaa059d3cdadb2a9ece905e";
     };
   in {
     ".config/dotfiles".source = dotfiles;
