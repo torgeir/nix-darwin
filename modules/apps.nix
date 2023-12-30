@@ -8,7 +8,7 @@
   environment.systemPackages = with pkgs; [
     git
     neovim
-    alacritty
+    unstable.alacritty
     nixd
     nixfmt # https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-fmt#examples
   ];
