@@ -36,6 +36,8 @@
     htop
     watch
 
+    alacritty-head
+
     tmux
     yabai
     skhd
