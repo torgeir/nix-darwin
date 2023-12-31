@@ -58,3 +58,25 @@ aka dependencies
 aka nix package extensions or modifications
 
 - [[https://github.com/bandithedoge/nixpkgs-firefox-darwin/][nixpkgs-firefox-darwin]]: an overlay to provide firefox built for darwin
+
+** clean up leftover applications
+
+when you recreate your system for the millionth time, you might end up with multiple applications that no longer represent what your config means should be the current one
+
+you can see all these generations of systems with
+
+#+begin_src sh
+darwin-rebuild --list-generations
+#+end_src
+
+you can find out what is keeping built derivations alive by looking up their path in the nix store
+
+#+begin_src sh :noeval
+nix-store --query --roots /nix/store/...
+#+end_src
+
+you can clean up these leftover generations with
+
+#+begin_src sh :noeval
+sudo nix-collect-garbage -d
+#+end_src
