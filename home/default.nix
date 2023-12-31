@@ -36,6 +36,10 @@
     btop
     watch
 
+    nodejs_20
+    nodePackages.prettier
+    nodePackages.bash-language-server
+
     tmux
     yabai
     skhd
