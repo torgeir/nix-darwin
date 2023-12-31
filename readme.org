@@ -10,7 +10,7 @@ Nix-darwin setup for an M3 mac, a variant of nix for macs.
 - [[https://github.com/LnL7/nix-darwin/blob/master/README.md#step-2-installing-nix-darwin][Install nix-darwin]], using nix it self, and nix flakes
 
 #+begin_src sh
-nix run nix-darwin -- switch --flake ~/.config/nix-darwin
+nix --extra-experimental-features 'nix-command flakes' run nix-darwin -- switch --flake ~/.config/nix-darwin
 #+end_src
 
 ** build the system and switch to it
