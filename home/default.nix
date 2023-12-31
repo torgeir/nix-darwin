@@ -5,7 +5,7 @@
 
   # import sub modules
   imports = [
-    # ./copy-home-manager-symlinked-apps.nix
+    ./link-home-manager-installed-apps.nix
     ./terminal.nix
     ./autojump.nix
     ./direnv.nix
@@ -24,15 +24,13 @@
     stateVersion = "23.11";
   };
 
-  # make home manager manage it self
-  programs.home-manager.enable = true;
-
   # https://github.com/NixOS/nixpkgs/blob/master/pkgs/os-specific/darwin/
   home.packages = with pkgs; [
     coreutils
 
     (ripgrep.override { withPCRE2 = true; })
     eza
+    fd
 
     htop
     watch

@@ -14,6 +14,11 @@
 
     nixpkgs-firefox-darwin.url = "github:bandithedoge/nixpkgs-firefox-darwin";
 
+    mkAlias = {
+      url = "github:cdmistman/mkAlias";
+      inputs.nixpkgs.follows = "nixpkgs-darwin";
+    };
+
     # nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     # alacritty-head.url = "github:shnarazk/flakes?dir=alacritty-head";
   };
@@ -41,6 +46,12 @@
             #   alacritty-head =
             #     inputs.alacritty-head.packages.${prev.system}.default;
             # })
+            (final: prev: {
+              # https://github.com/nix-community/home-manager/issues/1341#issuecomment-1468889352
+              mkAlias =
+                inputs.mkAlias.outputs.apps.${prev.system}.default.program;
+            })
+
           ];
         }
         ./modules/nix-core.nix
