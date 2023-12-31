@@ -1,7 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, ... }: {
 
-# https://daiderd.com/nix-darwin/manual/index.html#sec-options
-{
+  # https://daiderd.com/nix-darwin/manual/index.html#sec-options
 
   time.timeZone = "Europe/Oslo";
 

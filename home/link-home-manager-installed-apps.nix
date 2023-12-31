@@ -1,6 +1,5 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, ... }: {
 
-{
   # TODO is this better
   # https://github.com/okpedersen/dotfiles/blob/98c7fb9eb57546ca58df8257b4bd862d2281d071/darwin-application-activation.nix
   # Based on this comment

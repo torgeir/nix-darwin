@@ -1,6 +1,5 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, ... }: {
 
-{
   programs.gpg = {
     enable = true;
     package = pkgs.gnupg22;

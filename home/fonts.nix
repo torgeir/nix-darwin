@@ -1,4 +1,5 @@
 { config, lib, pkgs, ... }: {
+
   home.packages = with pkgs; [
     # https://github.com/be5invis/Iosevka/releases
     # https://github.com/NixOS/nixpkgs/blob/master/pkgs/data/fonts/iosevka/default.nix

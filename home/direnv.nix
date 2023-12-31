@@ -1,6 +1,4 @@
-{ config, lib, pkgs, ... }:
-
-{
+{ config, lib, pkgs, ... }: {
 
   programs.direnv.enable = true;
   programs.direnv.enableZshIntegration = true;

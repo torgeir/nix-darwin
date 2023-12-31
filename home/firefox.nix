@@ -1,4 +1,5 @@
 { config, lib, pkgs, ... }:
+
 let extensions = (pkgs.callPackage ./firefox-extensions.nix { });
 in {
 

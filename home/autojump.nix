@@ -1,6 +1,5 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, ... }: {
 
-{
   programs.autojump = {
     enable = true;
     enableBashIntegration = true;
