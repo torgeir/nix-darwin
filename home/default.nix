@@ -33,6 +33,7 @@
     fd
 
     htop
+    btop
     watch
 
     tmux
