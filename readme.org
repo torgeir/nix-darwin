@@ -62,7 +62,7 @@ aka nix package extensions or modifications
 
 ** clean up leftover applications
 
-when you recreate your system for the millionth time, you might end up with multiple applications that no longer represent what your config means should be the current one
+when you recreate your system for the millionth time, you might end up with multiple applications that no longer represent what your config means should be the current one, meaning commands like `open -a <app name>` and "Open With" might open apps you no longer mean to have installed
 
 you can see all these generations of systems with
 
@@ -76,7 +76,13 @@ you can find out what is keeping built derivations alive by looking up their pat
 nix-store --query --roots /nix/store/...
 #+end_src
 
-you can clean up these leftover generations with
+you can clean up leftover generations older than 7 days with
+
+#+begin_src sh :noeval
+sudo nix-collect-garbage --delete-older-than 7d
+#+end_src
+
+you can clean up all leftover generations with
 
 #+begin_src sh :noeval
 sudo nix-collect-garbage -d

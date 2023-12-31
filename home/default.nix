@@ -45,13 +45,16 @@
   home.file = let
     dotfiles = builtins.fetchGit {
       url = "https://github.com/torgeir/dotfiles";
-      rev = "61f0fee98fae02fcacaa059d3cdadb2a9ece905e";
+      rev = "ee4958da744330b76e2f8f861ad54827d22fa668";
     };
   in {
     ".config/dotfiles".source = dotfiles;
 
     ".config/alacritty/alacritty.yml".source = dotfiles
       + "/config/alacritty/alacritty.yml";
+
+    ".config/btop/themes/catpuccin-mocha.theme".source = dotfiles
+      + "/config/btop/themes/catpuccin-mocha.theme";
 
     "Library/KeyBindings/DefaultKeyBinding.dict".source = dotfiles
       + "/DefaultKeyBinding.dict";
