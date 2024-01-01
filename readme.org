@@ -60,6 +60,22 @@ aka nix package extensions or modifications
 
 - [[https://github.com/bandithedoge/nixpkgs-firefox-darwin/][nixpkgs-firefox-darwin]]: an overlay to provide firefox built for darwin
 
+** updating
+
+you can bump all inputs/dependencies, which updates the =flake.lock=, with
+
+#+begin_src nix
+nix flake update
+#+end_src
+
+you can bump a single input, e.g. nixpkgs-firefox-darwin, with
+
+#+begin_src nix
+nix flake lock --update-input nixpkgs-firefox-darwin
+#+end_src
+
+remember to =darwin-rebuild switch= afterwards
+
 ** clean up leftover applications
 
 when you recreate your system for the millionth time, you might end up with multiple applications that no longer represent what your config means should be the current one, meaning commands like =open -a <app name>= and "Open With" might open apps you no longer mean to have installed
