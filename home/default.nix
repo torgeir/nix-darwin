@@ -9,6 +9,7 @@
     ./terminal.nix
     ./autojump.nix
     ./direnv.nix
+    ./docker.nix
     ./git.nix
     ./gpg.nix
     ./emacs.nix
