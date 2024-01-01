@@ -8,6 +8,7 @@
     pkgs.unstable.colima # colima start --edit to tune its resources
 
     docker
+    docker-compose
   ];
 
 }
