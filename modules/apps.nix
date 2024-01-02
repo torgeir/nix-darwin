@@ -38,7 +38,7 @@
     brews = [ ];
 
     # brew install --cask
-    casks = [ "swiftbar" "zoom" ];
+    casks = [ "swiftbar" "zoom" "intellij-idea" ];
 
     # mac app store
     # click
