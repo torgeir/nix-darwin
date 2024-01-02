@@ -24,6 +24,19 @@
   };
 
   outputs = inputs@{ self, nixpkgs, darwin, home-manager, ... }: {
+
+    dockerImageOutput = let
+      pkgs = import nixpkgs {
+        localSystem = "aarch64-darwin";
+        crossSystem = "x86_64-linux";
+      };
+    in pkgs.dockerTools.buildLayeredImage {
+      name = "app-name";
+      tag = "latest";
+      contents = [ pkgs.hello ];
+      config.Cmd = [ "${pkgs.hello}/bin/hello" ];
+    };
+
     darwinConfigurations."bekk-mac-03257" = darwin.lib.darwinSystem {
       system = "aarch64-darwin"; # apple silicon
       specialArgs = { inherit inputs; };
