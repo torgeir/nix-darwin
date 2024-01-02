@@ -78,4 +78,13 @@ in {
     sha256 = "b7fb07b6788f7233dd6223e780e189b4c7b956c25c40493c28d7020493249292";
   };
 
+  tree-style-tab = buildExtension {
+    pname = "tree-style-tab";
+    version = "3.9.19";
+    id = "treestyletab@piro.sakura.ne.jp";
+    url =
+      "https://addons.mozilla.org/firefox/downloads/file/4197314/tree_style_tab-3.9.19.xpi";
+    sha256 = "bb67f47a554f8f937f4176bee6144945eb0f240630b93f73d2cff49f0985b55a";
+  };
+
 }

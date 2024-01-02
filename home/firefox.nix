@@ -23,6 +23,7 @@ in {
         extensions.multi-account-containers
         extensions.firefox-color
         extensions.onepassword-x-password-manager
+        extensions.tree-style-tab
       ];
     };
     # open -na Firefox --args -P work
