@@ -63,6 +63,8 @@
     "Library/KeyBindings/DefaultKeyBinding.dict".source = dotfiles
       + "/DefaultKeyBinding.dict";
 
+    ".ideavimrc".source = dotfiles + "/ideavimrc";
+
     ".yabairc".source = dotfiles + "/yabairc";
     ".skhdrc".source = dotfiles + "/skhdrc";
 
