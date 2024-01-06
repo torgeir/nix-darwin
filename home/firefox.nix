@@ -15,7 +15,15 @@ in {
     # open -na Firefox
     profiles.torgeir = {
       id = 0;
-      settings = { };
+      settings = {
+        # support userChrome.css
+        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+      };
+      # https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox.nix
+      userChrome = ''
+        #TabsToolbar    {visibility: collapse !important;}
+        #sidebar-header {visibility: collapse !important;}
+      '';
       extensions = [
         extensions.darkreader
         extensions.vimium-ff
