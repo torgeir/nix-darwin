@@ -21,8 +21,8 @@ in {
       };
       # https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox.nix
       userChrome = ''
-        #TabsToolbar    {visibility: collapse !important;}
-        #sidebar-header {visibility: collapse !important;}
+        #TabsToolbar    { visibility: collapse !important; }
+        #sidebar-header { visibility: collapse !important; }
       '';
       extensions = [
         extensions.darkreader
