@@ -52,6 +52,19 @@
                 inputs.mkAlias.outputs.apps.${prev.system}.default.program;
             })
 
+            (final: prev: {
+              # https://freerangebits.com/posts/2024/01/patch-instead-of-pin/
+              gnupg_plus_960877b = prev.gnupg.overrideAttrs (orig: {
+                patches = (orig.patches or [ ]) ++ [
+                  (prev.fetchurl {
+                    url =
+                      "https://github.com/gpg/gnupg/commit/960877b10f42ba664af4fb29130a3ba48141e64a.diff";
+                    sha256 =
+                      "0pa7rvy9i9w16njxdg6ly5nw3zwy0shv0v23l1mmi0b7jy7ldpvf";
+                  })
+                ];
+              });
+            })
           ];
         }
         ./modules/nix-core.nix
