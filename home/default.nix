@@ -53,6 +53,12 @@
     };
   in {
     ".config/dotfiles".source = dotfiles;
+    ".config/dotfiles".onChange = ''
+            echo "Fixing swiftbar path"
+            /usr/bin/defaults write com.ameba.Swiftbar PluginDirectory \
+              $(/etc/profiles/per-user/torgeir/bin/readlink ~/.config/dotfiles)/swiftbar/scripts
+      echo swiftbar plugin directory is $(/usr/bin/defaults read com.ameba.Swiftbar PluginDirectory)
+    '';
 
     ".config/alacritty/alacritty.yml".source = dotfiles
       + "/config/alacritty/alacritty.yml";
