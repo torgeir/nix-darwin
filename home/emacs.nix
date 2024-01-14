@@ -29,8 +29,11 @@
 
   xdg.enable = true;
   home = {
-    # put doom on path
-    sessionPath = [ "${config.xdg.configHome}/emacs/bin" ];
+    # put doom and custom .doom.d/bin/ on path
+    sessionPath = [
+      "${config.xdg.configHome}/emacs/bin"
+      "${config.home.homeDirectory}/.doom.d/bin"
+    ];
     sessionVariables = {
       # where doom is
       DOOMDIR = "${config.xdg.configHome}/doom.d";
