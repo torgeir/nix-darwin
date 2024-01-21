@@ -12,6 +12,7 @@
     ./docker.nix
     ./git.nix
     ./gw.nix
+    ./fzf.nix
     ./gpg.nix
     ./emacs.nix
     ./vim.nix
@@ -34,8 +35,6 @@
     (ripgrep.override { withPCRE2 = true; })
     eza
     fd
-    fzf
-
     htop
     btop
     watch
@@ -52,7 +51,7 @@
   home.file = let
     dotfiles = builtins.fetchGit {
       url = "https://github.com/torgeir/dotfiles";
-      rev = "d5ec529b9fb458c17dfbbe98baf36a82ee2b9a9f";
+      rev = "8acd599060e97c7b1f1447526c736a7dedb95183";
     };
   in {
     ".config/dotfiles".source = dotfiles;
