@@ -11,8 +11,10 @@
     ./direnv.nix
     ./docker.nix
     ./git.nix
+    ./gw.nix
     ./gpg.nix
     ./emacs.nix
+    ./vim.nix
     ./fonts.nix
     ./firefox.nix
     ./jq.nix
