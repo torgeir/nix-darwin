@@ -34,6 +34,7 @@
     (ripgrep.override { withPCRE2 = true; })
     eza
     fd
+    fzf
 
     htop
     btop
