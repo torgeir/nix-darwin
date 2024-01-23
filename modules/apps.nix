@@ -7,7 +7,6 @@
   # install packages from nix's official package repository.
   environment.systemPackages = with pkgs; [
     git
-    neovim
     nil # nix language server
     nixfmt # https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-fmt#examples
   ];
