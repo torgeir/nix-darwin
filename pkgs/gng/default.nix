@@ -1,4 +1,4 @@
-{ lib, stdenvNoCC, fetchFromGitHub, pkgs }:
+{ lib, stdenvNoCC, pkgs }:
 
 # stdenv no c compiler
 stdenvNoCC.mkDerivation rec {
@@ -8,10 +8,8 @@ stdenvNoCC.mkDerivation rec {
   nativeBuildInputs = [ pkgs.makeWrapper ];
   buildInputs = with pkgs.python310Packages; [ python ];
 
-  src = fetchFromGitHub {
-    owner = "gdubw";
-    repo = "gng";
-    rev = "173943b61092a1a00315f730c4054109a1c8937d";
+  src = builtins.fetchTarball {
+    url = "https://github.com/gdubw/gng/archive/refs/tags/${version}.tar.gz";
     sha256 = "sha256-QbyvCglSuQmSLBSSqVnRFqf9Tv1Bt4bUmfHrfR3Ci4A=";
   };
 
