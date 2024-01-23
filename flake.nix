@@ -1,6 +1,7 @@
 {
   description = "Nix for macOS configuration";
 
+  # format https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-flake.html#examples
   inputs = {
     nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-23.11-darwin";
     darwin = {
@@ -20,7 +21,6 @@
     };
 
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    # alacritty-head.url = "github:shnarazk/flakes?dir=alacritty-head";
   };
 
   outputs = inputs@{ self, nixpkgs, darwin, home-manager, ... }: {
