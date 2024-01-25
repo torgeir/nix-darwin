@@ -6,5 +6,5 @@
     userEmail = "torgeir.thoresen@gmail.com";
   };
 
-  home.packages = with pkgs; [ gh ];
+  home.packages = with pkgs; [ gh delta difftastic ];
 }

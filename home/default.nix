@@ -35,6 +35,7 @@
     (ripgrep.override { withPCRE2 = true; })
     eza
     fd
+    bat
     htop
     btop
     watch
@@ -51,7 +52,7 @@
   home.file = let
     dotfiles = builtins.fetchGit {
       url = "https://github.com/torgeir/dotfiles";
-      rev = "8acd599060e97c7b1f1447526c736a7dedb95183";
+      rev = "7af9ec57bb6fcb4808377b1bd569fcc87b7685d9";
     };
   in {
     ".config/dotfiles".source = dotfiles;
