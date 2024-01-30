@@ -40,9 +40,13 @@
     btop
     watch
 
+    # emacs deps
     nodejs_20
     nodePackages.prettier
     nodePackages.bash-language-server
+    nodePackages.ts-node
+    nodePackages.typescript
+    nodePackages.typescript-language-server
 
     tmux
     yabai
@@ -52,7 +56,7 @@
   home.file = let
     dotfiles = builtins.fetchGit {
       url = "https://github.com/torgeir/dotfiles";
-      rev = "7af9ec57bb6fcb4808377b1bd569fcc87b7685d9";
+      rev = "2a5c8b450f44e3ed44475c52d016087149bfa376";
     };
   in {
     ".config/dotfiles".source = dotfiles;

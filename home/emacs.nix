@@ -1,30 +1,38 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, pkgs, ... }:
+let
+  emacs = pkgs.emacs29.overrideAttrs (old: {
+    # inspiration https://github.com/noctuid/dotfiles/blob/30f615d0a8aed54cb21c9a55fa9c50e5a6298e80/nix/overlays/emacs.nix
+    patches = (old.patches or [ ]) ++ [
+      # fix os window role so that yabai can pick up emacs
+      (pkgs.fetchpatch {
+        url =
+          "https://raw.githubusercontent.com/d12frosted/homebrew-emacs-plus/master/patches/emacs-28/fix-window-role.patch";
+        sha256 = "+z/KfsBm1lvZTZNiMbxzXQGRTjkCFO4QPlEK35upjsE=";
+      })
+      (pkgs.fetchpatch {
+        url =
+          "https://raw.githubusercontent.com/d12frosted/homebrew-emacs-plus/master/patches/emacs-29/round-undecorated-frame.patch";
+        sha256 = "uYIxNTyfbprx5mCqMNFVrBcLeo+8e21qmBE3lpcnd+4=";
+      })
+      # prevent cocoa app refocus after emacs is hidden or quit
+      (pkgs.fetchpatch {
+        url =
+          "https://raw.githubusercontent.com/d12frosted/homebrew-emacs-plus/master/patches/emacs-28/no-frame-refocus-cocoa.patch";
+        sha256 = "QLGplGoRpM4qgrIAJIbVJJsa4xj34axwT3LiWt++j/c=";
+      })
+    ];
+  });
+  treesit = (pkgs.emacsPackagesFor emacs).treesit-grammars.with-all-grammars;
+in {
 
   programs.emacs = {
     enable = true;
-    package = pkgs.emacs29.overrideAttrs (old: {
-      # inspiration https://github.com/noctuid/dotfiles/blob/30f615d0a8aed54cb21c9a55fa9c50e5a6298e80/nix/overlays/emacs.nix
-      patches = (old.patches or [ ]) ++ [
-        # fix os window role so that yabai can pick up emacs
-        (pkgs.fetchpatch {
-          url =
-            "https://raw.githubusercontent.com/d12frosted/homebrew-emacs-plus/master/patches/emacs-28/fix-window-role.patch";
-          sha256 = "+z/KfsBm1lvZTZNiMbxzXQGRTjkCFO4QPlEK35upjsE=";
-        })
-        (pkgs.fetchpatch {
-          url =
-            "https://raw.githubusercontent.com/d12frosted/homebrew-emacs-plus/master/patches/emacs-29/round-undecorated-frame.patch";
-          sha256 = "uYIxNTyfbprx5mCqMNFVrBcLeo+8e21qmBE3lpcnd+4=";
-        })
-        # prevent cocoa app refocus after emacs is hidden or quit
-        (pkgs.fetchpatch {
-          url =
-            "https://raw.githubusercontent.com/d12frosted/homebrew-emacs-plus/master/patches/emacs-28/no-frame-refocus-cocoa.patch";
-          sha256 = "QLGplGoRpM4qgrIAJIbVJJsa4xj34axwT3LiWt++j/c=";
-        })
+    package = emacs;
+    extraPackages = epkgs:
+      [
+        epkgs.vterm
+        # epkgs.treesit-grammars.with-all-grammars
       ];
-    });
-    extraPackages = epkgs: [ epkgs.vterm ];
   };
 
   xdg.enable = true;
@@ -45,6 +53,8 @@
     };
   };
   xdg.configFile = {
+    # tree-sitter subdirectory of the directory specified by user-emacs-directory
+    "doom-local/cache/tree-sitter".source = "${treesit}/lib";
     # git clone git@github.com:torgeir/.emacs.d.git ~/.doom.d
     "doom.d".source = config.lib.file.mkOutOfStoreSymlink
       "${config.home.homeDirectory}/.doom.d";
