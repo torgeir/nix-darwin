@@ -33,6 +33,8 @@
     coreutils
 
     openconnect
+
+    gawk
     (ripgrep.override { withPCRE2 = true; })
     eza
     fd
