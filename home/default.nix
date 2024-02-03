@@ -83,6 +83,7 @@
 
     ".yabairc".source = dotfiles + "/yabairc";
     ".skhdrc".source = dotfiles + "/skhdrc";
+    ".skhdrc".onChange = "skhd --restart-service";
 
     ".zsh".source = dotfiles + "/zsh/";
     ".zshrc".source = dotfiles + "/zshrc";
