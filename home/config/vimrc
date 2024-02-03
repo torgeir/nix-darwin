@@ -130,5 +130,18 @@ autocmd BufReadPost *
 \   exe "normal g`\"" |
 \ endif
 
-" tweak vim comment color for gruvbox
-hi Comment term=bold cterm=italic ctermfg=235 ctermbg=237 gui=italic guifg=#3c3836 guibg=bg
+" tweak colors
+hi Comment cterm=bold ctermfg=0 ctermbg=NONE guifg=0 guibg=NONE
+hi LineNr ctermfg=0 ctermbg=NONE guifg=0 guibg=NONE
+hi StatusLine cterm=bold ctermfg=2 ctermbg=0
+hi StatusLineNC cterm=NONE ctermfg=7 ctermbg=0
+set cursorline
+hi clear CursorLine
+hi clear CursorLineNR
+hi CursorLineNR cterm=bold ctermfg=1 ctermbg=NONE guifg=1 guibg=NONE
+
+set fillchars=fold:\ ,vert:\│,msgsep:‾
+hi NonText ctermfg=0
+hi VertSplit ctermfg=0 ctermbg=NONE guifg=0 guibg=NONE
+
+hi ErrorMsg ctermbg=NONE ctermfg=1 guibg=NONE guifg=1

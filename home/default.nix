@@ -32,6 +32,7 @@
   home.packages = with pkgs; [
     coreutils
 
+    openconnect
     (ripgrep.override { withPCRE2 = true; })
     eza
     fd
