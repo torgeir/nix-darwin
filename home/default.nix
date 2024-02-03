@@ -59,7 +59,7 @@
   home.file = let
     dotfiles = builtins.fetchGit {
       url = "https://github.com/torgeir/dotfiles";
-      rev = "2a5c8b450f44e3ed44475c52d016087149bfa376";
+      rev = "7d77ed76ef2dd1d9dd9fa8fc931586fbc026eaef";
     };
   in {
     ".config/dotfiles".source = dotfiles;
