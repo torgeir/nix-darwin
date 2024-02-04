@@ -34,6 +34,11 @@
 
     openconnect
 
+    # mu4e+mbsync
+    mu
+    isync
+    msmtp
+
     gawk
     (ripgrep.override { withPCRE2 = true; })
     eza

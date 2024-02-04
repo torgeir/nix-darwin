@@ -28,11 +28,11 @@ in {
   programs.emacs = {
     enable = true;
     package = emacs;
-    extraPackages = epkgs:
-      [
-        epkgs.vterm
-        # epkgs.treesit-grammars.with-all-grammars
-      ];
+    extraPackages = epkgs: [
+      epkgs.vterm
+      pkgs.mu # sic
+      epkgs.mu4e
+    ];
   };
 
   xdg.enable = true;
