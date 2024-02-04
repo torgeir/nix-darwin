@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }: {
+{ pkgs, ... }: {
 
   # TODO
   # moar https://github.com/yuanw/nix-home/blob/main/modules/macintosh.nix
