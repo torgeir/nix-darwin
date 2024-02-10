@@ -47,25 +47,26 @@ set encoding=utf-8                " encoding
 set hidden                        " allow unsaved buffer switches
 set history=1000                  " keep longer history
 set relativenumber                " line numbers relative to cursor
+set number                        " but show current line number
 set autoread                      " automatically re-read file on outside change
 set nocompatible                  " dont bother being compatible with vi
 set lazyredraw                    " dont redraw until macro is complete
 set mouse=a                       " enable mouse in all modes
 
 set autoindent                    " keep indent on newline
-set smartindent                   " auto-indent (block/language)
+set breakat=" "                   " where to insert line breaks
+set expandtab                     " tabs are spaces
 set shiftround                    " round to whole indents
 set shiftwidth=2                  " indent = 2 chars
+set smartindent                   " auto-indent (block/language)
 set softtabstop=2                 " 2 tab = 2 spaces
-set expandtab                     " tabs are spaces
 set wrap linebreak nolist         " soft wrap lines
-set breakat=" "                   " where to insert line breaks
 let &showbreak="↪ "               " character to visualize breaks
 
 set iskeyword+=-                  " quotes are also keywords, so e.g. vi' works
 
 " set columns=84                   " 84 - 4 = 80 char width
-set numberwidth=6                 " linenumber width
+set numberwidth=2                 " linenumber width, it expands
 set showcmd
 set ruler                         " show ruler
 set scrolloff=8                   " more context around the cursor as it scrolls
@@ -78,6 +79,7 @@ runtime macros/matchit.vim        " make % match if/else/..
 
 set ignorecase                    " use smart case searching, only search for \
 set smartcase                     " case sensitive words if search has capital
+set showmode
 set incsearch                     " ...dynamically as they are typed.
 set wrapscan                      " make search wrap
 set hlsearch                      " highlight search-terms

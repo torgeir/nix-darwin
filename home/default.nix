@@ -64,7 +64,7 @@
   home.file = let
     dotfiles = builtins.fetchGit {
       url = "https://github.com/torgeir/dotfiles";
-      rev = "7d77ed76ef2dd1d9dd9fa8fc931586fbc026eaef";
+      rev = "7e24e7eeceb68ab2ec357dffa31ac673e31b1a54";
     };
   in {
     ".config/dotfiles".source = dotfiles;
@@ -93,6 +93,7 @@
 
     ".zsh".source = dotfiles + "/zsh/";
     ".zshrc".source = dotfiles + "/zshrc";
+    ".fzfrc".source = dotfiles + "/fzfrc";
     ".inputrc".source = dotfiles + "/inputrc";
     ".zprofile".source = dotfiles + "/profile";
     ".p10k.zsh".source = dotfiles + "/p10k.zsh";
