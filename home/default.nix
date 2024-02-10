@@ -88,7 +88,8 @@
 
     ".yabairc".source = dotfiles + "/yabairc";
     ".skhdrc".source = dotfiles + "/skhdrc";
-    ".skhdrc".onChange = "skhd --restart-service";
+    ".skhdrc".onChange =
+      "/etc/profiles/per-user/torgeir/bin/skhd --restart-service";
 
     ".zsh".source = dotfiles + "/zsh/";
     ".zshrc".source = dotfiles + "/zshrc";
