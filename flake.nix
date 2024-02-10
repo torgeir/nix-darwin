@@ -13,6 +13,8 @@
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
 
+    # upgrade with
+    #   nix flake lock --update-input nixpkgs-firefox-darwin
     nixpkgs-firefox-darwin.url = "github:bandithedoge/nixpkgs-firefox-darwin";
 
     mkAlias = {

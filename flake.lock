@@ -2,7 +2,9 @@
   "nodes": {
     "darwin": {
       "inputs": {
-        "nixpkgs": ["nixpkgs-darwin"]
+        "nixpkgs": [
+          "nixpkgs-darwin"
+        ]
       },
       "locked": {
         "lastModified": 1705915768,
@@ -20,7 +22,9 @@
     },
     "home-manager": {
       "inputs": {
-        "nixpkgs": ["nixpkgs-darwin"]
+        "nixpkgs": [
+          "nixpkgs-darwin"
+        ]
       },
       "locked": {
         "lastModified": 1705659542,
@@ -39,7 +43,9 @@
     },
     "mkAlias": {
       "inputs": {
-        "nixpkgs": ["nixpkgs-darwin"]
+        "nixpkgs": [
+          "nixpkgs-darwin"
+        ]
       },
       "locked": {
         "lastModified": 1678667396,
@@ -90,11 +96,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1706316060,
-        "narHash": "sha256-cBApptTHHpyFB1aBSzEkGRbFldAsUDnlh9skJ3n1Hx4=",
+        "lastModified": 1707573929,
+        "narHash": "sha256-ZO5fCh6imevpa6xaT5RNm0Rhc+P/crDZq7PNlQLbBME=",
         "owner": "bandithedoge",
         "repo": "nixpkgs-firefox-darwin",
-        "rev": "baff82b611a9d5e2740c58ef2707b8e2fd557994",
+        "rev": "b9be8c8093a224bfcf5449bf0ef1a9253e3fc1d3",
         "type": "github"
       },
       "original": {
