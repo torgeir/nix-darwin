@@ -43,11 +43,6 @@
                 import inputs.nixpkgs-unstable { system = prev.system; };
             })
 
-            # https://github.com/shnarazk/flakes/blob/e21c982072c9e4ac92f6dec72ed8bc6d10c65b21/flake.nix
-            # (final: prev: {
-            #   alacritty-head =
-            #     inputs.alacritty-head.packages.${prev.system}.default;
-            # })
             (final: prev: {
               # https://github.com/nix-community/home-manager/issues/1341#issuecomment-1468889352
               mkAlias =
