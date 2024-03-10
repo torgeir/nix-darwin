@@ -39,6 +39,9 @@
     isync
     msmtp
 
+    #webp support
+    libwebp
+
     gawk
     (ripgrep.override { withPCRE2 = true; })
     eza
@@ -64,7 +67,7 @@
   home.file = let
     dotfiles = builtins.fetchGit {
       url = "https://github.com/torgeir/dotfiles";
-      rev = "837219f6d26fe1503e9c5446b7d2b61125b84406";
+      rev = "d54f7cb5551c521d494e818cb8b589dfc82c6a63";
     };
   in {
     ".config/dotfiles".source = dotfiles;

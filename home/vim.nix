@@ -14,7 +14,7 @@
 
     # https://github.com/NixOS/nixpkgs/blob/master/pkgs/applications/editors/vim/plugins/vim-plugin-names
     plugins = with pkgs.vimPlugins; [
-      gruvbox
+      catppuccin-nvim
 
       editorconfig-vim
 
@@ -25,6 +25,14 @@
       vim-nix
       vim-surround
       vim-commentary
+
+      {
+        plugin = lightline-vim;
+        config = ''
+          source ${./config/lightline.vim}
+          let g:lightline = {'colorscheme': 't'}
+        '';
+      }
 
       {
         plugin = nerdtree;

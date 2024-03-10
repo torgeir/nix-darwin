@@ -27,6 +27,7 @@
     };
 
     taps = [
+      "homebrew/cask"
       # "homebrew/cask-fonts"
       # "homebrew/services"
       # "homebrew/cask-versions"

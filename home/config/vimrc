@@ -67,7 +67,6 @@ set iskeyword+=-                  " quotes are also keywords, so e.g. vi' works
 
 " set columns=84                   " 84 - 4 = 80 char width
 set numberwidth=2                 " linenumber width, it expands
-set showcmd
 set ruler                         " show ruler
 set scrolloff=8                   " more context around the cursor as it scrolls
 
@@ -79,7 +78,8 @@ runtime macros/matchit.vim        " make % match if/else/..
 
 set ignorecase                    " use smart case searching, only search for \
 set smartcase                     " case sensitive words if search has capital
-set showmode
+set showcmd                       " show partial commands
+set noshowmode                    " no --insert--
 set incsearch                     " ...dynamically as they are typed.
 set wrapscan                      " make search wrap
 set hlsearch                      " highlight search-terms
