@@ -2,7 +2,7 @@
 
   programs.gpg = {
     enable = true;
-    package = pkgs.gnupg_plus_960877b;
+    package = pkgs.gnupg24;
   };
 
   home.packages = with pkgs; [ pinentry_mac ];
