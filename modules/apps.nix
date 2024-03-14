@@ -26,12 +26,12 @@
       cleanup = "zap";
     };
 
-    taps = [
-      "homebrew/cask"
-      # "homebrew/cask-fonts"
-      # "homebrew/services"
-      # "homebrew/cask-versions"
-    ];
+    # taps = [
+    # "homebrew/cask"
+    # "homebrew/cask-fonts"
+    # "homebrew/services"
+    # "homebrew/cask-versions"
+    # ];
 
     # brew install
     brews = [ ];
