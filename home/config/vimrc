@@ -8,6 +8,15 @@ nnoremap <M-f> w
 nnoremap <M-b> b
 inoremap <M-f> <C-o>w
 inoremap <M-b> <C-o>b
+" delete like in the terminal
+imap <C-w> <C-o>db
+imap <M-d> <C-o>cw
+" undo like in the terminal
+imap <C-S-_> <C-o>u
+imap <C-a> <C-o>0
+imap <C-e> <C-o>$
+imap <C-k> <C-o>d$
+imap <C-u> <C-o>d0
 
 " window
 nnoremap <leader>wh <C-w>h
