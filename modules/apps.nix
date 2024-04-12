@@ -26,15 +26,10 @@
       cleanup = "zap";
     };
 
-    # taps = [
-    # "homebrew/cask"
-    # "homebrew/cask-fonts"
-    # "homebrew/services"
-    # "homebrew/cask-versions"
-    # ];
+    taps = [ "CtrlSpice/homebrew-otel-desktop-viewer" ];
 
     # brew install
-    brews = [ ];
+    brews = [ "otel-desktop-viewer" ];
 
     # brew install --cask
     casks = [ "google-cloud-sdk" "swiftbar" "spotify" "zoom" "intellij-idea" ];
