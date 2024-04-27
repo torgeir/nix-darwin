@@ -59,15 +59,19 @@
     nodePackages.typescript
     nodePackages.typescript-language-server
 
+    ollama
+
     tmux
     yabai
     skhd
   ];
 
+  # TODO hardware.keyboard.zsa.enable
+
   home.file = let
     dotfiles = builtins.fetchGit {
       url = "https://github.com/torgeir/dotfiles";
-      rev = "d54f7cb5551c521d494e818cb8b589dfc82c6a63";
+      rev = "af7a13c903c46f64cce8ab139ea846b85d8f45ca";
     };
   in {
     ".config/dotfiles".source = dotfiles;
