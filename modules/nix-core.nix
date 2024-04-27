@@ -11,7 +11,10 @@
   # clean up every once in a while
   nix.gc.automatic = true;
   # gets rid of duplicate store files
-  nix.settings.auto-optimise-store = true;
+  # turned off due to
+  # https://github.com/NixOS/nix/issues/7273#issuecomment-1325073957
+  nix.settings.auto-optimise-store = false;
+  # nix store optimise (manually instead)
 
   # linux builder
   # https://nixcademy.com/2024/02/12/macos-linux-builder/
