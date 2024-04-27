@@ -11,7 +11,10 @@ in {
   programs.firefox = {
     enable = true;
     # https://github.com/bandithedoge/nixpkgs-firefox-darwin/blob/main/overlay.nix
-    package = pkgs.firefox-bin;
+    # https://github.com/notohh/snowflake/blob/master/home/firefox/default.nix
+    # package = pkgs.firefox-bin;
+    package = pkgs.firefox-devedition-bin;
+    # package = pkgs.firefox-nightly-bin; # TODO firefox-devedition-bin?
     # open -na Firefox
     profiles.torgeir = {
       id = 0;
