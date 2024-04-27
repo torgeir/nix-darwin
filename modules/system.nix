@@ -51,6 +51,8 @@
       dock = {
         autohide = true;
         magnification = true;
+        # most recently used spaces
+        mru-spaces = false;
         tilesize = 32;
         largesize = 96;
       };
