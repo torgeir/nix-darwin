@@ -23,6 +23,8 @@
     };
 
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-locked.url =
+      "github:NixOS/nixpkgs/1042fd8b148a9105f3c0aca3a6177fd1d9360ba5";
   };
 
   outputs = inputs@{ self, nixpkgs, darwin, home-manager, ... }: {
@@ -41,6 +43,12 @@
             (final: prev: {
               unstable =
                 import inputs.nixpkgs-unstable { system = prev.system; };
+            })
+
+            (final: prev: {
+              # pkgs.unstable-locked.<something>
+              unstable-locked =
+                import inputs.nixpkgs-locked { system = prev.system; };
             })
 
             (final: prev: {

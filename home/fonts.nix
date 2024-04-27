@@ -1,15 +1,14 @@
 { config, lib, pkgs, ... }: {
 
-  home.packages = with pkgs; [
+  home.packages = with pkgs.unstable-locked; [
     # https://github.com/be5invis/Iosevka/releases
     # https://github.com/NixOS/nixpkgs/blob/master/pkgs/data/fonts/iosevka/default.nix
     # https://github.com/NixOS/nixpkgs/blob/master/pkgs/data/fonts/iosevka/variants.nix
-    (pkgs.callPackage ./../pkgs/patch-nerd-fonts {
-      font = pkgs.iosevka-bin.override { variant = "sgr-iosevka-etoile"; };
+    (callPackage ./../pkgs/patch-nerd-fonts {
+      font = iosevka-bin.override { variant = "Etoile"; };
     })
-    (pkgs.callPackage ./../pkgs/patch-nerd-fonts {
-      font =
-        pkgs.iosevka-bin.override { variant = "sgr-iosevka-term-curly-slab"; };
+    (callPackage ./../pkgs/patch-nerd-fonts {
+      font = iosevka-bin.override { variant = "SGr-IosevkaTermCurlySlab"; };
     })
   ];
 }
