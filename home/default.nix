@@ -94,6 +94,9 @@
     ".ideavimrc".source = dotfiles + "/ideavimrc";
 
     ".yabairc".source = dotfiles + "/yabairc";
+    ".yabairc".onChange =
+      "/etc/profiles/per-user/torgeir/bin/yabai --restart-service";
+
     ".skhdrc".source = dotfiles + "/skhdrc";
     ".skhdrc".onChange =
       "/etc/profiles/per-user/torgeir/bin/skhd --restart-service";
