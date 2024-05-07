@@ -21,6 +21,17 @@ in {
       settings = {
         # support userChrome.css
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+
+        # disable autoplay
+        "media.autoplay.default" = 0;
+        "media.autoplay.enabled" = false;
+
+        # show full urls
+        "browser.urlbar.trimURLs" = false;
+        "browser.aboutConfig.showWarning" = false;
+
+        # no pocket
+        "extensions.pocket.enabled" = false;
       };
       # https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox.nix
       userChrome = ''
@@ -36,6 +47,28 @@ in {
         extensions.onepassword-x-password-manager
         extensions.tree-style-tab
       ];
+      #https://github.com/montchr/dotfield/blob/78de8ff316ccb2d34fd98cd9bfd3bfb5ad775b0e/home/profiles/firefox/search/default.nix
+      search.force = true;
+      search.default = "DuckDuckGo";
+      search.engines = let
+        engine = alias: template: {
+          definedAliases = [ "@${alias}" ];
+          urls = [{ inherit template; }];
+        };
+      in {
+        "Github Code" = engine "github-code"
+          "https://github.com/search?q={searchTerms}&type=code";
+        "Npm" = engine "npm" "https://www.npmjs.com/search?q={searchTerms}";
+        "DuckDuckGo" =
+          engine "duckduckgo" "https://duckduckgo.com/?q={searchTerms}";
+        "Google" =
+          engine "google" "https://www.google.com/search?q={searchTerms}";
+        "Nixpkgs" = engine "nixpkgs"
+          "https://search.nixos.org/packages?type=packages&query={searchTerms}";
+        "Nixpkgs Unstable" = engine "nixpkgs-unstable"
+          "https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query={searchTerms}";
+        "Nixfns" = engine "nixfns" "https://noogle.dev/q?term={searchTerms}";
+      } // (import ./firefox-da.nix { engine = engine; });
     };
     # open -na Firefox --args -P work
     profiles.work = {
