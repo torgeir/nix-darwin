@@ -32,6 +32,7 @@
     brews = [ "otel-desktop-viewer" ];
 
     # brew install --cask
+    # these need to be updated manually
     casks = [ "google-cloud-sdk" "swiftbar" "spotify" "zoom" "intellij-idea" ];
 
     # mac app store
@@ -39,6 +40,7 @@
     masApps = {
       amphetamine = 937984704;
       kindle = 302584613;
+      tailscale = 1475387142;
 
       # useful for debugging macos key codes
       #key-codes = 414568915;
