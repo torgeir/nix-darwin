@@ -33,7 +33,7 @@
 
     # brew install --cask
     # these need to be updated manually
-    casks = [ "google-cloud-sdk" "swiftbar" "spotify" "zoom" "intellij-idea" ];
+    casks = [ "swiftbar" "spotify" "zoom" "intellij-idea" ];
 
     # mac app store
     # click
