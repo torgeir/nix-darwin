@@ -55,6 +55,7 @@
     nodejs_20
     nodePackages.prettier
     nodePackages.bash-language-server
+    nodePackages.yaml-language-server
     nodePackages.ts-node
     nodePackages.typescript
     nodePackages.typescript-language-server
