@@ -22,16 +22,25 @@
       	-x $DRY_RUN_CMD ${pkgs.mkAlias} -L {} "$tmp_path/{/}"
       $DRY_RUN_CMD rm -rf "$app_path"
 
-      # try to copy Firefox.app to /Applications
-      # for file in $tmp_path/*; do
-      #   rm -rf "/Applications/$(basename "$file")"
-      #   tmp=$(/usr/bin/osascript -e "tell application \"Finder\" to get the POSIX path of (original item of alias POSIX file \"$file\" as alias)")
-      #   file="''${tmp%/}"
-      #   cp -fHRL "$file" "/Applications/$(basename "$file")"
-      # done
-
       $DRY_RUN_CMD mkdir -p "$app_path"
-      $DRY_RUN_CMD mv "$tmp_path" "$app_path"
+      # $DRY_RUN_CMD mv "$tmp_path" "$app_path"
+      $DRY_RUN_CMD mv $tmp_path/*.app "$HOME/Applications"
+
+      # copy some apps to /Applications
+      for file in \
+          "$HOME/Applications/Alacritty.app" \
+          "$HOME/Applications/Firefox Developer Edition.app" \
+        ; do
+        existing="/Applications/$(basename "$file")"
+        [[ -d "$existing" ]] && echo App already installed, refusing to copy it to /Applications: $existing && continue
+        # lookup the alias path of what home manager installed
+        aliased=$(/usr/bin/osascript -e "tell application \"Finder\" to get the POSIX path of (original item of alias POSIX file \"$file\" as alias)")
+        # remove trailing slash
+        actual="''${aliased%/}"
+        # copy it into /Applications
+        cp -fHRL "$actual" "/Applications/" || true
+        chown -R torgeir:admin "/Applications/$(basename "$actual")" || true
+      done
     '';
   };
 }
