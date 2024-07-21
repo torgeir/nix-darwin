@@ -63,8 +63,8 @@
     ollama
 
     tmux
-    yabai
-    skhd
+    pkgs.unstable.yabai
+    pkgs.unstable.skhd
   ];
 
   # TODO hardware.keyboard.zsa.enable
@@ -72,7 +72,7 @@
   home.file = let
     dotfiles = builtins.fetchGit {
       url = "https://github.com/torgeir/dotfiles";
-      rev = "9b24f5692fcb742739840ab2c7038c3c077d33b7";
+      rev = "709eb11b8c327ccaea194ea8f7eda20397ba1ad5";
     };
   in {
     ".config/dotfiles".source = dotfiles;
@@ -83,11 +83,30 @@
       echo swiftbar plugin directory is $(/usr/bin/defaults read com.ameba.Swiftbar PluginDirectory)
     '';
 
-    ".config/alacritty/alacritty.toml".source = dotfiles
-      + "/config/alacritty/alacritty.toml";
-
-    ".config/btop/themes/catpuccin-mocha.theme".source = dotfiles
-      + "/config/btop/themes/catpuccin-mocha.theme";
+    ".config/alacritty/main.toml".source = dotfiles
+      + "/config/alacritty/main.toml";
+    ".config/alacritty/alacritty-dark.toml".source = dotfiles
+      + "/config/alacritty/alacritty-dark.toml";
+    ".config/alacritty/alacritty-light.toml".source = dotfiles
+      + "/config/alacritty/alacritty-light.toml";
+    ".config/alacritty/catppuccin-mocha.toml".source = dotfiles
+      + "/config/alacritty/catppuccin-mocha.toml";
+    ".config/alacritty/catppuccin-latte.toml".source = dotfiles
+      + "/config/alacritty/catppuccin-latte.toml";
+    ".config/alacritty/alacritty-toggle-appearance".text = ''
+      #!/usr/bin/env bash
+      cd ${config.xdg.configHome}/alacritty/
+      darkmode=$(osascript -e 'tell application "System Events" to get dark mode of appearance preferences')
+      if [ "true" = "$darkmode" ]; then
+        cp -f alacritty-dark.toml alacritty.toml
+      else
+        cp -f alacritty-light.toml alacritty.toml
+      fi
+    '';
+    ".config/alacritty/alacritty-toggle-appearance".onChange = ''
+      sudo chown torgeir ${config.xdg.configHome}/alacritty/alacritty-toggle-appearance
+      sudo chmod u+x ${config.xdg.configHome}/alacritty/alacritty-toggle-appearance
+    '';
 
     "Library/KeyBindings/DefaultKeyBinding.dict".source = dotfiles
       + "/DefaultKeyBinding.dict";
