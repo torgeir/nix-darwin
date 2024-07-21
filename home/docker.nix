@@ -9,6 +9,7 @@
 
     docker
     docker-compose
+    docker-credential-helpers
   ];
 
 }
