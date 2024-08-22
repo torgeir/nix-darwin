@@ -95,11 +95,13 @@ nix-store --query --roots /nix/store/...
 you can clean up leftover generations older than 7 days with
 
 #+begin_src sh :noeval
+nix-collect-garbage --delete-older-than 7d
 sudo nix-collect-garbage --delete-older-than 7d
 #+end_src
 
 you can clean up all leftover generations with
 
 #+begin_src sh :noeval
+nix-collect-garbage -d
 sudo nix-collect-garbage -d
 #+end_src
