@@ -85,6 +85,9 @@
       echo swiftbar plugin directory is $(/usr/bin/defaults read com.ameba.Swiftbar PluginDirectory)
     '';
 
+    ".config/btop/themes".source = dotfiles + "/config/btop/themes";
+    ".config/bat".source = dotfiles + "/config/bat";
+
     ".config/alacritty/main.toml".source = dotfiles
       + "/config/alacritty/main.toml";
     ".config/alacritty/alacritty-dark.toml".source = dotfiles
