@@ -12,6 +12,7 @@ inoremap <M-b> <C-o>b
 imap <C-w> <C-o>db
 imap <M-d> <C-o>cw
 " undo like in the terminal
+imap  <C-o>u
 imap <C-S-_> <C-o>u
 imap <C-a> <C-o>0
 imap <C-e> <C-o>$
@@ -23,6 +24,8 @@ nnoremap <leader>wh <C-w>h
 nnoremap <leader>wj <C-w>j
 nnoremap <leader>wk <C-w>k
 nnoremap <leader>wl <C-w>l
+" keep only this window
+noremap <C-x>1 :only<cr>
 
 " close
 nmap <leader>wd :q<cr>
@@ -40,11 +43,18 @@ inoremap jk <esc>l
 nnoremap <leader>hN #
 nnoremap <leader>hn *
 
+" toggle wrap
+noremap <leader>tu :set wrap!<cr>
+
 " before plugins
 filetype off
 
 " after plugins
 filetype indent plugin on
+
+" terminal, go to normal mode
+tnoremap <leader><Esc> <C-\><C-n>
+tnoremap jk <C-\><C-n>
 
 """"""""""""""""""""""""""""""""""""""""
 " settings
