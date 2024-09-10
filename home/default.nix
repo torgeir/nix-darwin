@@ -59,8 +59,10 @@
     nodePackages.ts-node
     nodePackages.typescript
     nodePackages.typescript-language-server
-    clojure-lsp
     shellcheck
+
+    babashka
+    clojure-lsp
 
     ollama
 
