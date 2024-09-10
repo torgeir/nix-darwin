@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ config, pkgs, ... }: {
 
   # TODO
   # moar https://github.com/yuanw/nix-home/blob/main/modules/macintosh.nix
@@ -74,7 +74,7 @@
   home.file = let
     dotfiles = builtins.fetchGit {
       url = "https://github.com/torgeir/dotfiles";
-      rev = "cee7da7a2ef276184cd7de6853289e8170035da0";
+      rev = "2f5d4da6aceb97a2ddfab1e17e58dbfa9e196049";
     };
   in {
     ".config/dotfiles".source = dotfiles;
