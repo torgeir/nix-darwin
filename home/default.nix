@@ -76,7 +76,7 @@
   home.file = let
     dotfiles = builtins.fetchGit {
       url = "https://github.com/torgeir/dotfiles";
-      rev = "2f5d4da6aceb97a2ddfab1e17e58dbfa9e196049";
+      rev = "dcab672c57fb517b9586990842ced3693e51c16a";
     };
   in {
     ".config/dotfiles".source = dotfiles;
@@ -87,7 +87,7 @@
       echo swiftbar plugin directory is $(/usr/bin/defaults read com.ameba.Swiftbar PluginDirectory)
     '';
 
-    ".config/btop/themes".source = dotfiles + "/config/btop/themes";
+    ".config/btop".source = dotfiles + "/config/btop";
     ".config/bat".source = dotfiles + "/config/bat";
 
     ".config/alacritty/main.toml".source = dotfiles
