@@ -72,6 +72,9 @@
       # TODO waiting for https://github.com/LnL7/nix-darwin/pull/820/
       #universalaccess.reduceMotion = true;
     };
+
+    # error from nix-darwin without this one
+    stateVersion = 5;
   };
 
   # touchid for sudo authentication
