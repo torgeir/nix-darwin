@@ -20,13 +20,13 @@ in {
     ./gw.nix
     ./fzf.nix
     ./gpg.nix
-    ./emacs.nix
     ./fonts.nix
     ./firefox.nix
     ./jq.nix
     (nix-home-manager + "/modules")
   ];
 
+  programs.t-doomemacs.enable = true;
   programs.t-nvim.enable = true;
   programs.t-terminal.alacritty = {
     enable = true;
