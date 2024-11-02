@@ -1,4 +1,11 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, lib, ... }:
+
+let
+  nix-home-manager = builtins.fetchGit {
+    url = "https://github.com/torgeir/nix-home-manager";
+    rev = "63326c6b5e938d90f3a7ce0c3a4811c9802ef273";
+  };
+in {
 
   # TODO
   # moar https://github.com/yuanw/nix-home/blob/main/modules/macintosh.nix
@@ -6,7 +13,6 @@
   # import sub modules
   imports = [
     ./link-home-manager-installed-apps.nix
-    ./terminal.nix
     ./autojump.nix
     ./direnv.nix
     ./docker.nix
@@ -15,11 +21,17 @@
     ./fzf.nix
     ./gpg.nix
     ./emacs.nix
-    ./vim.nix
     ./fonts.nix
     ./firefox.nix
     ./jq.nix
+    (nix-home-manager + "/modules")
   ];
+
+  programs.t-nvim.enable = true;
+  programs.t-terminal.alacritty = {
+    enable = true;
+    package = pkgs.unstable.alacritty;
+  };
 
   # home manager needs this
   home = {
@@ -62,6 +74,7 @@
     shellcheck
 
     babashka
+    clojure
     clojure-lsp
 
     ollama
@@ -76,7 +89,7 @@
   home.file = let
     dotfiles = builtins.fetchGit {
       url = "https://github.com/torgeir/dotfiles";
-      rev = "8ead36f97aaa74486beb7b99dbbc592decec40ca";
+      rev = "03603c2603ae3d7baf6900ceeade04ef0488db68";
     };
   in {
     ".config/dotfiles".source = dotfiles;
@@ -89,31 +102,6 @@
 
     ".config/btop".source = dotfiles + "/config/btop";
     ".config/bat".source = dotfiles + "/config/bat";
-
-    ".config/alacritty/main.toml".source = dotfiles
-      + "/config/alacritty/main.toml";
-    ".config/alacritty/alacritty-dark.toml".source = dotfiles
-      + "/config/alacritty/alacritty-dark.toml";
-    ".config/alacritty/alacritty-light.toml".source = dotfiles
-      + "/config/alacritty/alacritty-light.toml";
-    ".config/alacritty/catppuccin-mocha.toml".source = dotfiles
-      + "/config/alacritty/catppuccin-mocha.toml";
-    ".config/alacritty/catppuccin-latte.toml".source = dotfiles
-      + "/config/alacritty/catppuccin-latte.toml";
-    ".config/alacritty/alacritty-toggle-appearance".text = ''
-      #!/usr/bin/env bash
-      cd ${config.xdg.configHome}/alacritty/
-      darkmode=$(osascript -e 'tell application "System Events" to get dark mode of appearance preferences')
-      if [ "true" = "$darkmode" ]; then
-        cp -f alacritty-dark.toml alacritty.toml
-      else
-        cp -f alacritty-light.toml alacritty.toml
-      fi
-    '';
-    ".config/alacritty/alacritty-toggle-appearance".onChange = ''
-      sudo chown torgeir ${config.xdg.configHome}/alacritty/alacritty-toggle-appearance
-      sudo chmod u+x ${config.xdg.configHome}/alacritty/alacritty-toggle-appearance
-    '';
 
     "Library/KeyBindings/DefaultKeyBinding.dict".source = dotfiles
       + "/DefaultKeyBinding.dict";
