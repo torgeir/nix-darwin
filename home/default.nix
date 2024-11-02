@@ -3,7 +3,7 @@
 let
   nix-home-manager = builtins.fetchGit {
     url = "https://github.com/torgeir/nix-home-manager";
-    rev = "63326c6b5e938d90f3a7ce0c3a4811c9802ef273";
+    rev = "95d182569dd992a65e734e181d2176972b8bd17e";
   };
 in {
 
@@ -13,16 +13,12 @@ in {
   # import sub modules
   imports = [
     ./link-home-manager-installed-apps.nix
-    ./autojump.nix
-    ./direnv.nix
     ./docker.nix
     ./git.nix
     ./gw.nix
-    ./fzf.nix
     ./gpg.nix
     ./fonts.nix
     ./firefox.nix
-    ./jq.nix
     (nix-home-manager + "/modules")
   ];
 
@@ -32,6 +28,8 @@ in {
     enable = true;
     package = pkgs.unstable.alacritty;
   };
+  programs.t-zoxide.enable = true;
+  programs.t-shell-tooling.enable = true;
 
   # home manager needs this
   home = {
@@ -58,19 +56,16 @@ in {
   home.file = let
     dotfiles = builtins.fetchGit {
       url = "https://github.com/torgeir/dotfiles";
-      rev = "03603c2603ae3d7baf6900ceeade04ef0488db68";
+      rev = "39c0cb7b1a9389d63fe87ef020dcb39d32f4a77d";
     };
   in {
     ".config/dotfiles".source = dotfiles;
     ".config/dotfiles".onChange = ''
-            echo "Fixing swiftbar path"
-            /usr/bin/defaults write com.ameba.Swiftbar PluginDirectory \
-              $(/etc/profiles/per-user/torgeir/bin/readlink ~/.config/dotfiles)/swiftbar/scripts
+      echo "Fixing swiftbar path"
+      /usr/bin/defaults write com.ameba.Swiftbar PluginDirectory \
+        $(/etc/profiles/per-user/torgeir/bin/readlink ~/.config/dotfiles)/swiftbar/scripts
       echo swiftbar plugin directory is $(/usr/bin/defaults read com.ameba.Swiftbar PluginDirectory)
     '';
-
-    ".config/btop".source = dotfiles + "/config/btop";
-    ".config/bat".source = dotfiles + "/config/bat";
 
     "Library/KeyBindings/DefaultKeyBinding.dict".source = dotfiles
       + "/DefaultKeyBinding.dict";
@@ -87,7 +82,6 @@ in {
 
     ".zsh".source = dotfiles + "/zsh/";
     ".zshrc".source = dotfiles + "/zshrc";
-    ".fzfrc".source = dotfiles + "/fzfrc";
     ".inputrc".source = dotfiles + "/inputrc";
     ".zprofile".source = dotfiles + "/profile";
     ".p10k.zsh".source = dotfiles + "/p10k.zsh";
