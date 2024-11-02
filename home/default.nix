@@ -46,37 +46,6 @@ in {
 
     openconnect
 
-    # mu4e+mbsync
-    mu
-    isync
-    msmtp
-
-    #webp support
-    libwebp
-
-    gawk
-    (ripgrep.override { withPCRE2 = true; })
-    eza
-    fd
-    bat
-    htop
-    btop
-    watch
-
-    # emacs deps
-    nodejs_20
-    nodePackages.prettier
-    nodePackages.bash-language-server
-    nodePackages.yaml-language-server
-    nodePackages.ts-node
-    nodePackages.typescript
-    nodePackages.typescript-language-server
-    shellcheck
-
-    babashka
-    clojure
-    clojure-lsp
-
     ollama
 
     tmux
