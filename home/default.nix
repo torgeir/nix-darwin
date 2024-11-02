@@ -3,18 +3,16 @@
 let
   nix-home-manager = builtins.fetchGit {
     url = "https://github.com/torgeir/nix-home-manager";
-    rev = "95d182569dd992a65e734e181d2176972b8bd17e";
+    rev = "acd92c3c200328db16168e0f50173859c5aada5f";
   };
 in {
 
-  # TODO
   # moar https://github.com/yuanw/nix-home/blob/main/modules/macintosh.nix
 
   # import sub modules
   imports = [
     ./link-home-manager-installed-apps.nix
     ./docker.nix
-    ./git.nix
     ./gw.nix
     ./gpg.nix
     ./fonts.nix
@@ -28,8 +26,15 @@ in {
     enable = true;
     package = pkgs.unstable.alacritty;
   };
+  programs.t-tmux.enable = true;
   programs.t-zoxide.enable = true;
   programs.t-shell-tooling.enable = true;
+  programs.t-git = {
+    enable = true;
+    # gh version >2.40.0
+    # https://github.com/cli/cli/issues/326
+    ghPackage = pkgs.unstable.gh;
+  };
 
   # home manager needs this
   home = {
@@ -46,7 +51,6 @@ in {
 
     ollama
 
-    tmux
     pkgs.unstable.yabai
     pkgs.unstable.skhd
   ];
@@ -85,7 +89,5 @@ in {
     ".inputrc".source = dotfiles + "/inputrc";
     ".zprofile".source = dotfiles + "/profile";
     ".p10k.zsh".source = dotfiles + "/p10k.zsh";
-    ".gitconfig".source = dotfiles + "/gitconfig";
-    ".tmux.conf".source = dotfiles + "/tmux.conf";
   };
 }
