@@ -37,7 +37,7 @@ darwin-rebuild switch --flake ~/.config/nix-darwin
   - [[./modules/system.nix][system.nix]]: mac specific settings; dock, keyboard, finder++
 - [[./home/][home/]]
   - [[https://nixos.wiki/wiki/Home_Manager][home manager modules]]: user specific package configuration
-  - many of these modules are pulled in from [torgeir/nix-home-manager](/torgeir/nix-home-manager)
+  - most of these modules are pulled in from [[https://github.com/torgeir/nix-home-manager][torgeir/nix-home-manager]]
 
 ** a few nice things
 
@@ -45,7 +45,7 @@ pkgs, overlays, overrides++
 
 - [[./pkgs/patch-nerd-fonts/default.nix][patch-nerd-fonts]]: a derivation to patch a font with nerd font symbols
 - [[https://github.com/torgeir/nix-darwin/blob/095913bf96cfcf29c42992ac7d85776097f015b3/home/firefox-extensions.nix#L3C20-L15][firefox-extensions.nix]]: borrow [[https://github.com/nix-community/nur-combined/blob/master/repos/rycee/pkgs/firefox-addons/default.nix#L5-L23][rycee's code]] from [[https://nur.nix-community.org/][NUR]] (Nix User Repository) for [[https://github.com/torgeir/nix-darwin/blob/095913bf96cfcf29c42992ac7d85776097f015b3/home/firefox-extensions.nix#L18-L78][installing firefox extensions]]
-- [[https://github.com/torgeir/nix-darwin/blob/ee6253c4ba5aaec03539bba3c8a671c66c0778a0/home/emacs.nix#L5-L26][emacs with a few patches]]: overridden emacs29 package to compile it with selected patches, inspired by [[https://github.com/noctuid/dotfiles/blob/30f615d0a8aed54cb21c9a55fa9c50e5a6298e80/nix/overlays/emacs.nix#L26][noctuid's config]], e.g. to work with the [[https://github.com/koekeishiya/yabai][yabai tiling vm]]
+- [[https://github.com/torgeir/nix-home-manager/blob/acd92c3c200328db16168e0f50173859c5aada5f/modules/emacs.nix][emacs with a few patches]]: overridden emacs29 package to compile it with selected patches, inspired by [[https://github.com/noctuid/dotfiles/blob/30f615d0a8aed54cb21c9a55fa9c50e5a6298e80/nix/overlays/emacs.nix#L26][noctuid's config]], e.g. to work with the [[https://github.com/koekeishiya/yabai][yabai tiling vm]]
 
 ** input flakes
 
