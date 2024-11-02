@@ -37,6 +37,7 @@ darwin-rebuild switch --flake ~/.config/nix-darwin
   - [[./modules/system.nix][system.nix]]: mac specific settings; dock, keyboard, finder++
 - [[./home/][home/]]
   - [[https://nixos.wiki/wiki/Home_Manager][home manager modules]]: user specific package configuration
+  - many of these modules are pulled in from [torgeir/nix-home-manager](/torgeir/nix-home-manager)
 
 ** a few nice things
 
