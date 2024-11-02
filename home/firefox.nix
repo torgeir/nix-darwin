@@ -14,7 +14,7 @@ in {
     # https://github.com/notohh/snowflake/blob/master/home/firefox/default.nix
     # package = pkgs.firefox-bin;
     package = pkgs.firefox-devedition-bin;
-    # package = pkgs.firefox-nightly-bin; # TODO firefox-devedition-bin?
+    # package = pkgs.firefox-nightly-bin;
     # open -na Firefox
     profiles.torgeir = {
       id = 0;

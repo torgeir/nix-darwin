@@ -1,6 +1,8 @@
 { config, lib, pkgs, ... }: {
 
   # TODO is this better
+  # https://github.com/nix-community/home-manager/issues/1341#issuecomment-2268980647
+  # Inspiration
   # https://github.com/okpedersen/dotfiles/blob/98c7fb9eb57546ca58df8257b4bd862d2281d071/darwin-application-activation.nix
   # Based on this comment
   # https://github.com/nix-community/home-manager/issues/1341#issuecomment-1466965161

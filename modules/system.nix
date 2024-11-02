@@ -68,9 +68,6 @@
         # full path in window title
         _FXShowPosixPathInTitle = true;
       };
-
-      # TODO waiting for https://github.com/LnL7/nix-darwin/pull/820/
-      #universalaccess.reduceMotion = true;
     };
 
     # error from nix-darwin without this one
