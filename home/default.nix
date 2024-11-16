@@ -3,7 +3,7 @@
 let
   nix-home-manager = builtins.fetchGit {
     url = "https://github.com/torgeir/nix-home-manager";
-    rev = "acd92c3c200328db16168e0f50173859c5aada5f";
+    rev = "a4dadbb20d5e41b5ba700520d04f974a18c7906e";
   };
 in {
 
@@ -16,10 +16,14 @@ in {
     ./gw.nix
     ./gpg.nix
     ./fonts.nix
-    ./firefox.nix
     (nix-home-manager + "/modules")
   ];
 
+  programs.t-firefox = {
+    enable = true;
+    package = pkgs.firefox-devedition-bin;
+    extraEngines = (import ./firefox-da.nix { });
+  };
   programs.t-doomemacs.enable = true;
   programs.t-nvim.enable = true;
   programs.t-terminal.alacritty = {
