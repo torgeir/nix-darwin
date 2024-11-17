@@ -75,6 +75,8 @@
             home-manager.extraSpecialArgs = {
               inherit inputs;
               dotfiles = dotfiles;
+              # hack around nix-home-manager causing infinite recursion
+              isLinux = false;
             };
           }
         ];
