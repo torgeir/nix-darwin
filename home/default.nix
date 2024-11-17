@@ -1,10 +1,6 @@
-{ config, pkgs, lib, ... }:
+{ config, inputs, pkgs, lib, ... }:
 
-let
-  nix-home-manager = builtins.fetchGit {
-    url = "https://github.com/torgeir/nix-home-manager";
-    rev = "a4dadbb20d5e41b5ba700520d04f974a18c7906e";
-  };
+let dotfiles = inputs.dotfiles;
 in {
 
   # moar https://github.com/yuanw/nix-home/blob/main/modules/macintosh.nix
@@ -16,7 +12,7 @@ in {
     ./gw.nix
     ./gpg.nix
     ./fonts.nix
-    (nix-home-manager + "/modules")
+    (inputs.nix-home-manager + "/modules")
   ];
 
   programs.t-firefox = {
@@ -61,12 +57,7 @@ in {
 
   # TODO hardware.keyboard.zsa.enable
 
-  home.file = let
-    dotfiles = builtins.fetchGit {
-      url = "https://github.com/torgeir/dotfiles";
-      rev = "39c0cb7b1a9389d63fe87ef020dcb39d32f4a77d";
-    };
-  in {
+  home.file = {
     ".config/dotfiles".source = dotfiles;
     ".config/dotfiles".onChange = ''
       echo "Fixing swiftbar path"
@@ -87,11 +78,5 @@ in {
     ".skhdrc".source = dotfiles + "/skhdrc";
     ".skhdrc".onChange =
       "/etc/profiles/per-user/torgeir/bin/skhd --restart-service";
-
-    ".zsh".source = dotfiles + "/zsh/";
-    ".zshrc".source = dotfiles + "/zshrc";
-    ".inputrc".source = dotfiles + "/inputrc";
-    ".zprofile".source = dotfiles + "/profile";
-    ".p10k.zsh".source = dotfiles + "/p10k.zsh";
   };
 }

@@ -25,17 +25,21 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-locked.url =
       "github:NixOS/nixpkgs/1042fd8b148a9105f3c0aca3a6177fd1d9360ba5";
+
+    nix-home-manager.url = "github:torgeir/nix-home-manager";
+    dotfiles.url = "github:torgeir/dotfiles";
   };
 
-  outputs = inputs@{ self, nixpkgs, darwin, home-manager, ... }: {
-    darwinConfigurations."bekk-mac-03257" = darwin.lib.darwinSystem {
-      system = "aarch64-darwin"; # apple silicon
-      specialArgs = { inherit inputs; };
-      modules = [
-        {
-          nixpkgs.overlays = [
-            # pkgs.firefox-bin
-            inputs.nixpkgs-firefox-darwin.overlay
+  outputs = inputs@{ self, nixpkgs, darwin, home-manager, nix-home-manager
+    , dotfiles, ... }: {
+      darwinConfigurations."bekk-mac-03257" = darwin.lib.darwinSystem {
+        system = "aarch64-darwin"; # apple silicon
+        specialArgs = { inherit inputs; };
+        modules = [
+          {
+            nixpkgs.overlays = [
+              # pkgs.firefox-bin
+              inputs.nixpkgs-firefox-darwin.overlay
 
             # use selected unstable packages with pkgs.unstable.xyz
             # https://discourse.nixos.org/t/how-to-use-nixos-unstable-for-some-packages-only/36337
@@ -67,10 +71,13 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = inputs;
-          home-manager.users.torgeir = import ./home;
         }
       ];
+            home-manager.users.torgeir = import ./home;
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+              dotfiles = dotfiles;
+            };
     };
   };
 }
