@@ -8,7 +8,15 @@
 
     # activationScripts are executed every time you boot the system
     # or run `nixos-rebuild` / `darwin-rebuild`.
+
     activationScripts.postUserActivation.text = ''
+      echo "Reduce Menu Bar padding"
+      defaults write -globalDomain NSStatusItemSelectionPadding -int 6
+      defaults write -globalDomain NSStatusItemSpacing -int 6
+      # revert it
+      #defaults -currentHost delete -globalDomain NSStatusItemSelectionPadding
+      #defaults -currentHost delete -globalDomain NSStatusItemSpacing
+
       # activateSettings -u will reload the settings from the database and apply
       # them to the current session, so we do not need to logout and login again
       # to make the changes take effect.
