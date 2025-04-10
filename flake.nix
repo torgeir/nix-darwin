@@ -3,14 +3,14 @@
 
   # format https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-flake.html#examples
   inputs = {
-    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-23.11-darwin";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-24.11-darwin";
     darwin = {
-      url = "github:lnl7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs-darwin";
+      url = "github:LnL7/nix-darwin/nix-darwin-24.11";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
-      inputs.nixpkgs.follows = "nixpkgs-darwin";
+      url = "github:nix-community/home-manager/release-24.11";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # upgrade with
@@ -19,7 +19,7 @@
 
     mkAlias = {
       url = "github:cdmistman/mkAlias";
-      inputs.nixpkgs.follows = "nixpkgs-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -81,6 +81,34 @@
           }
         ];
       };
+
+      #nixosModules.vm = { config, pkgs, modulesPath, ... }: {
+      #  imports = [ "${modulesPath}/virtualisation/qemu-vm.nix" ];
+      #  system.stateVersion = "23.11";
+      #  boot.loader.systemd-boot.enable = true;
+      #  boot.loader.efi.canTouchEfiVariables = true;
+      #  services.getty.autologinUser = "test";
+      #  users.users.test = {
+      #    isNormalUser = true;
+      #    extraGroups = [ "wheel" ]; # enable sudo
+      #    packages = with pkgs; [ neofetch ];
+      #    initialPassword = "linux";
+      #  };
+      #  virtualisation = {
+      #    graphics = false;
+      #    # vmVariant.virtualisation.graphics = false;
+      #    # useNixStoreImage = true;
+      #  };
+      #  environment.systemPackages = [ pkgs.vim ];
+      #};
+      ## > nix run .#nixosConfigurations.linuxvm.config.system.build.vm
+      #nixosConfigurations."linuxvm" = nixpkgs.lib.nixosSystem {
+      #  system = "aarch64-linux"; # using the linux-builder
+      #  specialArgs = { };
+      #  modules = [
+      #    self.nixosModules.vm
+      #    { virtualisation.host.pkgs = nixpkgs.legacyPackages.aarch64-darwin; }
+      #  ];
+      #};
     };
-  };
 }
