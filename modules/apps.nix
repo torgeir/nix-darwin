@@ -8,7 +8,8 @@
   environment.systemPackages = with pkgs; [
     git
     nil # nix language server
-    nixfmt # https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-fmt#examples
+    # TODO it was renamed
+    nixfmt-classic # https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-fmt#examples
   ];
 
   # To make this work, homebrew need to be installed manually, see
