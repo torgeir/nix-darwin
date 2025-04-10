@@ -52,8 +52,9 @@ in {
     # gemma etc needs newer ollama
     pkgs.unstable.ollama
 
-    pkgs.unstable.yabai
-    pkgs.unstable.skhd
+    pkgs.aerospace
+    pkgs.jankyborders
+
   ];
 
   # TODO hardware.keyboard.zsa.enable
@@ -72,12 +73,8 @@ in {
 
     ".ideavimrc".source = dotfiles + "/ideavimrc";
 
-    ".yabairc".source = dotfiles + "/yabairc";
-    ".yabairc".onChange =
-      "/etc/profiles/per-user/torgeir/bin/yabai --restart-service";
-
-    ".skhdrc".source = dotfiles + "/skhdrc";
-    ".skhdrc".onChange =
-      "/etc/profiles/per-user/torgeir/bin/skhd --restart-service";
+    ".aerospace.toml".source = dotfiles + "/aerospace.toml";
+    ".aerospace.toml".onChange =
+      "/etc/profiles/per-user/torgeir/bin/aerospace reload-config";
   };
 }
