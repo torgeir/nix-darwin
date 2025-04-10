@@ -55,6 +55,7 @@ in {
     pkgs.aerospace
     pkgs.jankyborders
 
+    pkgs.qmk
   ];
 
   # TODO hardware.keyboard.zsa.enable
