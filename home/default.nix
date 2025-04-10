@@ -70,6 +70,8 @@ in {
       /usr/bin/defaults write com.ameba.Swiftbar PluginDirectory \
         $(/etc/profiles/per-user/torgeir/bin/readlink ~/.config/dotfiles)/swiftbar/scripts
       echo swiftbar plugin directory is $(/usr/bin/defaults read com.ameba.Swiftbar PluginDirectory)
+      /usr/bin/killall SwiftBar > /dev/null 2> /dev/null
+      /usr/bin/open /Applications/SwiftBar.app
     '';
 
     "Library/KeyBindings/DefaultKeyBinding.dict".source = dotfiles
