@@ -49,7 +49,8 @@ in {
 
     openconnect
 
-    ollama
+    # gemma etc needs newer ollama
+    pkgs.unstable.ollama
 
     pkgs.unstable.yabai
     pkgs.unstable.skhd
