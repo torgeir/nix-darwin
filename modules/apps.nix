@@ -41,6 +41,7 @@
       amphetamine = 937984704;
       kindle = 302584613;
       tailscale = 1475387142;
+      windows-app = 1295203466; # rdp
 
       # useful for debugging macos key codes
       #key-codes = 414568915;
