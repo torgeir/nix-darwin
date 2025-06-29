@@ -55,8 +55,8 @@ in {
     pkgs.unstable.nerd-fonts.iosevka
     pkgs.unstable.nerd-fonts.iosevka-term
 
-    pkgs.aerospace
-    pkgs.jankyborders
+    pkgs.unstable.aerospace
+    pkgs.unstable.jankyborders
 
     pkgs.qmk
   ];
