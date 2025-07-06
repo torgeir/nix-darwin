@@ -22,7 +22,7 @@
     enable = true;
 
     onActivation = {
-      autoUpdate = true;
+      autoUpdate = false; # annoying
       # 'zap': uninstalls all formulae(and related files) not listed here.
       cleanup = "zap";
     };
@@ -39,10 +39,11 @@
     # mac app store
     # click
     masApps = {
-      amphetamine = 937984704;
-      kindle = 302584613;
-      tailscale = 1475387142;
-      windows-app = 1295203466; # rdp
+      # removed as they are slow, and apps are still kept
+      #amphetamine = 937984704;
+      #kindle = 302584613;
+      #tailscale = 1475387142;
+      #windows-app = 1295203466; # rdp
 
       # useful for debugging macos key codes
       #key-codes = 414568915;
