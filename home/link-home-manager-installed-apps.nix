@@ -30,6 +30,7 @@
 
       # copy some apps to /Applications
       for file in \
+          "$HOME/Applications/Emacs.app" \
           "$HOME/Applications/Alacritty.app" \
           "$HOME/Applications/Firefox Developer Edition.app" \
         ; do
