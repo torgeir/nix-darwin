@@ -6,10 +6,9 @@
 
   # install packages from nix's official package repository.
   environment.systemPackages = with pkgs; [
-    git
-    nil # nix language server
-    # TODO it was renamed
-    nixfmt-classic # https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-fmt#examples
+    pkgs.unstable.git
+    nixd # nix language server
+    nixfmt-classic
   ];
 
   # To make this work, homebrew need to be installed manually, see
@@ -49,4 +48,5 @@
       #key-codes = 414568915;
     };
   };
+
 }

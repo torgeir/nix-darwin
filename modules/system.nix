@@ -92,7 +92,7 @@
   # load env vars set via home manager
   environment.extraInit = let
     homeManagerSessionVars =
-      "/etc/profiles/per-user/$USER/etc/profile.d/hm-session-vars.sh";
+      "/etc/profiles/per-user/torgeir/etc/profile.d/hm-session-vars.sh";
   in ''
     [[ -f ${homeManagerSessionVars} ]] && source ${homeManagerSessionVars}
   '';
