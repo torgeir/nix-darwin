@@ -13,6 +13,7 @@ in {
     ./gpg.nix
     ./fonts.nix
     (inputs.nix-home-manager + "/modules")
+    inputs.nix-home-manager.homeManagerModules.emacs
   ];
 
   programs.t-firefox = {
