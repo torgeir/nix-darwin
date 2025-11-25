@@ -52,6 +52,9 @@
         # fast key repeat rate when hold
         KeyRepeat = 2;
         InitialKeyRepeat = 15;
+
+        # move windows with ctrl+cmd+drag anywhere
+        NSWindowShouldDragOnGesture = true;
       };
 
       # killall Dock to make them have effect
