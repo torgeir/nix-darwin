@@ -12,8 +12,15 @@ in {
     ./gw.nix
     ./gpg.nix
     ./fonts.nix
-    (inputs.nix-home-manager + "/modules")
-    inputs.nix-home-manager.homeManagerModules.emacs
+    (inputs.nix-home-manager + "/modules/alacritty.nix")
+    (inputs.nix-home-manager + "/modules/nvim.nix")
+    # TODO
+    # (inputs.nix-home-manager + "/modules/git.nix")
+    (inputs.nix-home-manager + "/modules/firefox.nix")
+    (inputs.nix-home-manager + "/modules/zoxide.nix")
+    (inputs.nix-home-manager + "/modules/shell-tooling.nix")
+    (inputs.nix-home-manager + "/modules/tmux.nix")
+    (inputs.nix-home-manager.homeManagerModules.emacs)
   ];
 
   programs.t-firefox = {
