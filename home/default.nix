@@ -24,6 +24,7 @@ in {
     (inputs.nix-home-manager + "/modules/shell-tooling.nix")
     (inputs.nix-home-manager + "/modules/tmux.nix")
     (inputs.nix-home-manager.homeManagerModules.emacs)
+    ./insane-hack-fix-emacs-path.nix
   ];
 
   programs.t-firefox = {
@@ -81,5 +82,4 @@ in {
 
     ".ideavimrc".source = dotfiles + "/ideavimrc";
   };
-
 }
