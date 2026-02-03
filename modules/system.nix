@@ -6,7 +6,7 @@
 
   environment.systemPackages = [
     (pkgs.writeShellScriptBin "rebuild-nix-darwin" ''
-      if ! timeout 1 sudo -n true 2>/dev/null; then
+      if ! sudo -n true 2>/dev/null; then
         open --wait-apps -a Privileges.app
       fi
       darwin-rebuild switch --flake ~/.config/nix-darwin
