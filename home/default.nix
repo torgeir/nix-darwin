@@ -10,8 +10,11 @@ in {
     ./link-home-manager-installed-apps.nix
     ./docker.nix
     ./gw.nix
+    ./git.nix
     ./gpg.nix
     ./fonts.nix
+    ./skhd.nix
+    ./aerospace.nix
     (inputs.nix-home-manager + "/modules/alacritty.nix")
     (inputs.nix-home-manager + "/modules/nvim.nix")
     # TODO
@@ -37,12 +40,6 @@ in {
   programs.t-tmux.enable = true;
   programs.t-zoxide.enable = true;
   programs.t-shell-tooling.enable = true;
-  programs.t-git = {
-    enable = true;
-    # gh version >2.40.0
-    # https://github.com/cli/cli/issues/326
-    ghPackage = pkgs.unstable.gh;
-  };
 
   # home manager needs this
   home = {
@@ -62,9 +59,6 @@ in {
 
     pkgs.unstable.nerd-fonts.iosevka
     pkgs.unstable.nerd-fonts.iosevka-term
-
-    pkgs.unstable.aerospace
-    pkgs.unstable.jankyborders
 
     pkgs.qmk
   ];
@@ -86,9 +80,6 @@ in {
       + "/DefaultKeyBinding.dict";
 
     ".ideavimrc".source = dotfiles + "/ideavimrc";
-
-    ".aerospace.toml".source = dotfiles + "/aerospace.toml";
-    ".aerospace.toml".onChange =
-      "/etc/profiles/per-user/torgeir/bin/aerospace reload-config";
   };
+
 }

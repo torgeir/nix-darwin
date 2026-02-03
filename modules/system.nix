@@ -4,6 +4,15 @@
 
   time.timeZone = "Europe/Oslo";
 
+  environment.systemPackages = [
+    (pkgs.writeShellScriptBin "rebuild-nix-darwin" ''
+      if ! timeout 1 sudo -n true 2>/dev/null; then
+        open --wait-apps -a Privileges.app
+      fi
+      darwin-rebuild switch --flake ~/.config/nix-darwin
+    '')
+  ];
+
   system = {
 
     # activationScripts are executed every time you boot the system
