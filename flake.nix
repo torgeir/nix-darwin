@@ -82,6 +82,26 @@
         ];
       };
 
+      # nixd = {
+      #   eval = {
+      #     target = {
+      #       args = [ ];
+      #       installable = ".#darwinConfigurations.bekk-mac-03257.system";
+      #     };
+      #     depth = 1;
+      #   };
+      #   formatting = { command = [ "nixfmt" ]; };
+      #   options = {
+      #     darwin = { expr = "inputs.darwin.darwinModules.simple.options"; };
+      #     home-manager = {
+      #       expr = "inputs.home-manager.darwinModules.home-manager.options";
+      #     };
+      #     nixpkgs = {
+      #       expr = "inputs.nixpkgs.legacyPackages.aarch64-darwin.lib.options";
+      #     };
+      #   };
+      # };
+
       #nixosModules.vm = { config, pkgs, modulesPath, ... }: {
       #  imports = [ "${modulesPath}/virtualisation/qemu-vm.nix" ];
       #  system.stateVersion = "23.11";
