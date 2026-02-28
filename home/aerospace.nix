@@ -108,15 +108,15 @@
       shift-alt-ctrl-cmd-i = 'exec-and-forget open -a Firefox\ Developer\ Edition'
       shift-alt-ctrl-cmd-c = 'exec-and-forget open -a IntelliJ\ IDEA'
       shift-alt-ctrl-cmd-o = 'exec-and-forget open -a Microsoft\ Outlook'
-      shift-alt-ctrl-cmd-t = 'exec-and-forget open -a Alacritty'
+      shift-alt-ctrl-cmd-t = 'exec-and-forget open -a Ghostty'
       shift-alt-ctrl-cmd-s = 'exec-and-forget open -a Slack'
       shift-alt-ctrl-cmd-m = 'exec-and-forget open -a Spotify'
       shift-alt-ctrl-cmd-p = 'exec-and-forget open -a 1Password'
 
       cmd-shift-enter = 'exec-and-forget open -na Firefox\ Developer\ Edition'
 
-      cmd-ctrl-enter = 'exec-and-forget open -a Alacritty'
-      cmd-ctrl-shift-enter = 'exec-and-forget open -na Alacritty'
+      cmd-ctrl-enter = 'exec-and-forget open -a Ghostty'
+      cmd-ctrl-shift-enter = 'exec-and-forget open -na Ghostty'
       cmd-shift-h = 'exec-and-forget open -a Finder -- ~/'
       cmd-shift-w = 'exec-and-forget open -a Finder -- ~/Downloads'
 
@@ -206,6 +206,11 @@
       if.app-name-regex-substring = 'emacs'
       run = 'move-node-to-workspace 2'
       [[on-window-detected]]
+      if.app-name-regex-substring = 'ghostty'
+      # terminals are useful where you need them
+      if.during-aerospace-startup = true
+      run = 'move-node-to-workspace 3'
+      [[on-window-detected]]
       if.app-name-regex-substring = 'alacritty'
       # terminals are useful where you need them
       if.during-aerospace-startup = true
@@ -219,6 +224,9 @@
       [[on-window-detected]]
       if.app-name-regex-substring = 'spotify'
       run = 'move-node-to-workspace 6'
+      [[on-window-detected]]
+      if.app-name-regex-substring = 'MobileDeviceUpdater'
+      run = 'move-node-to-workspace 1'
       # [[on-window-detected]]
       # if.app-id = 'com.tinyspeck.slackmacgap'
       # run = 'move-node-to-workspace 0'

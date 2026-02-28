@@ -16,6 +16,7 @@ in {
     ./skhd.nix
     ./aerospace.nix
     (inputs.nix-home-manager + "/modules/alacritty.nix")
+    (inputs.nix-home-manager + "/modules/ghostty.nix")
     (inputs.nix-home-manager + "/modules/nvim.nix")
     # TODO
     # (inputs.nix-home-manager + "/modules/git.nix")
@@ -39,6 +40,9 @@ in {
     package = pkgs.unstable.alacritty;
   };
   programs.t-tmux.enable = true;
+  programs.t-terminal.ghostty.enable = true;
+  # TODO this installs it but it is unusable, manually installed Ghostty.app
+  programs.t-terminal.ghostty.package = pkgs.unstable.ghostty-bin;
   programs.t-zoxide.enable = true;
   programs.t-shell-tooling.enable = true;
 

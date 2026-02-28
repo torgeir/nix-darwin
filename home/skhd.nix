@@ -10,7 +10,7 @@
     fn-i : open -a Firefox\ Developer\ Edition
     fn-c : open -a IntelliJ\ IDEA
     fn-o : open -a Microsoft\ Outlook
-    fn-t : open -a Alacritty
+    fn-t : open -a Ghostty
     fn-s : open -a Slack
     fn-m : open -a Spotify
     fn-p : open -a 1Password
