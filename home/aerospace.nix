@@ -104,7 +104,7 @@
       cmd-alt-h = [] # Disable "hide others"
 
       # similar fn- binds use skhd
-      shift-alt-ctrl-cmd-e = 'exec-and-forget open -a emacs'
+      shift-alt-ctrl-cmd-e = 'exec-and-forget /bin/zsh -lc "open -a Emacs"'
       shift-alt-ctrl-cmd-i = 'exec-and-forget open -a Firefox\ Developer\ Edition'
       shift-alt-ctrl-cmd-c = 'exec-and-forget open -a IntelliJ\ IDEA'
       shift-alt-ctrl-cmd-o = 'exec-and-forget open -a Microsoft\ Outlook'

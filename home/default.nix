@@ -25,7 +25,6 @@ in {
     (inputs.nix-home-manager + "/modules/shell-tooling.nix")
     (inputs.nix-home-manager + "/modules/tmux.nix")
     (inputs.nix-home-manager.homeManagerModules.emacs)
-    ./insane-hack-fix-emacs-path.nix
   ];
 
   programs.t-firefox = {
@@ -33,7 +32,7 @@ in {
     package = pkgs.firefox-devedition-bin;
     extraEngines = (import ./firefox-da.nix { });
   };
-  programs.t-doomemacs.enable = true;
+  programs.t-emacs.enable = true;
   programs.t-nvim.enable = true;
   programs.t-terminal.alacritty = {
     enable = true;

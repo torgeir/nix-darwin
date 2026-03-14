@@ -21,6 +21,7 @@
     enable = true;
     userName = "torgeir";
     userEmail = "torgeir.thoresen@gmail.com";
+    package = pkgs.unstable.git;
     # settings = {
     #   user = {
     #     name = "torgeir";
