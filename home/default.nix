@@ -11,15 +11,15 @@ in {
     ./docker.nix
     ./gw.nix
     ./git.nix
-    ./gpg.nix
     ./fonts.nix
     ./skhd.nix
     ./aerospace.nix
     (inputs.nix-home-manager + "/modules/alacritty.nix")
     (inputs.nix-home-manager + "/modules/ghostty.nix")
     (inputs.nix-home-manager + "/modules/nvim.nix")
-    # TODO
+    # TODO try reverting this and the changes within it, maybe its ok now
     # (inputs.nix-home-manager + "/modules/git.nix")
+    (inputs.nix-home-manager + "/modules/gpg.nix")
     (inputs.nix-home-manager + "/modules/firefox.nix")
     (inputs.nix-home-manager + "/modules/zoxide.nix")
     (inputs.nix-home-manager + "/modules/shell-tooling.nix")
@@ -34,6 +34,8 @@ in {
   };
   programs.t-emacs.enable = true;
   programs.t-nvim.enable = true;
+  programs.t-gpg.enable = true;
+  programs.t-gpg.opCmd = "/Users/torgeir/bin/op";
   programs.t-terminal.alacritty = {
     enable = true;
     package = pkgs.unstable.alacritty;
