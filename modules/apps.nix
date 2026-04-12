@@ -2,6 +2,8 @@
 
   environment.extraInit = ''
     export PATH=$HOME/bin:$PATH
+    export PATH=$HOME/.local/bin:$PATH
+    export PATH=$HOME/.emacs.d/bin:$PATH
   '';
 
   # install packages from nix's official package repository.
