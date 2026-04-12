@@ -13,11 +13,6 @@
     '')
   ];
 
-  # TODO did this mess up nixos git on path, and rather favored system git?
-  launchd.user.envVariables.PATH = lib.concatStringsSep ":"
-    ((lib.splitString ":" config.environment.systemPath)
-      ++ [ "/Users/torgeir/.config/emacs/bin" ]);
-
   system = {
 
     # activationScripts are executed every time you boot the system
