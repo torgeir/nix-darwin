@@ -24,6 +24,7 @@ in {
     (inputs.nix-home-manager + "/modules/zoxide.nix")
     (inputs.nix-home-manager + "/modules/shell-tooling.nix")
     (inputs.nix-home-manager + "/modules/tmux.nix")
+    (inputs.nix-home-manager + "/modules/zellij.nix")
     (inputs.nix-home-manager.homeManagerModules.emacs)
   ];
 
@@ -41,6 +42,7 @@ in {
     package = pkgs.unstable.alacritty;
   };
   programs.t-tmux.enable = true;
+  programs.t-zellij.enable = true;
   programs.t-terminal.ghostty.enable = true;
   # TODO this installs it but it is unusable, manually installed Ghostty.app
   programs.t-terminal.ghostty.package = pkgs.unstable.ghostty-bin;
@@ -66,7 +68,7 @@ in {
     pkgs.unstable.nerd-fonts.iosevka
     pkgs.unstable.nerd-fonts.iosevka-term
 
-    pkgs.qmk
+    qmk
   ];
 
   # TODO hardware.keyboard.zsa.enable
