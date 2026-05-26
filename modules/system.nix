@@ -20,15 +20,15 @@
 
     activationScripts.postUserActivation.text = ''
       echo "Reduce Menu Bar padding"
-      defaults write -globalDomain NSStatusItemSelectionPadding -int 6
-      defaults write -globalDomain NSStatusItemSpacing -int 6
+      defaults write -globalDomain NSStatusItemSelectionPadding -int 0
+      defaults write -globalDomain NSStatusItemSpacing -int 0
       # revert it
       #defaults -currentHost delete -globalDomain NSStatusItemSelectionPadding
       #defaults -currentHost delete -globalDomain NSStatusItemSpacing
 
       # activateSettings -u will reload the settings from the database and apply
       # them to the current session, so we do not need to logout and login again
-      # to make the changes take effect.
+      # to make the changes take effect, or kill ControlCenter
       /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
     '';
 
