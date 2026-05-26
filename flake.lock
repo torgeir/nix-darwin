@@ -23,11 +23,11 @@
     },
     "dotfiles": {
       "locked": {
-        "lastModified": 1775990278,
-        "narHash": "sha256-X4FbCwoqu6NEjR9PvzQF3VClj7l6a+1ua0rx8qAwXvU=",
+        "lastModified": 1779545206,
+        "narHash": "sha256-sIvLjMcDXsYtlbGcf74zN0JdtV05eXGv2/A3zi3YS2o=",
         "owner": "torgeir",
         "repo": "dotfiles",
-        "rev": "1a0047c9e472a4c3c0ad74a50b5f7e5913484350",
+        "rev": "9448becc49ee99f4e2996e044802f95fe6d1e3aa",
         "type": "github"
       },
       "original": {
@@ -79,11 +79,11 @@
     },
     "nix-home-manager": {
       "locked": {
-        "lastModified": 1776188049,
-        "narHash": "sha256-+CwTF8fbXIu0EdCx4l3z+6hFS1VSxyHW4eDO8c5jSgo=",
+        "lastModified": 1779546070,
+        "narHash": "sha256-Ui3JzbuR3X50dFGI+0+1b5hQXyJympKU6r4mYEQi/bE=",
         "owner": "torgeir",
         "repo": "nix-home-manager",
-        "rev": "3bbef8f5a6c9c8683d8dd5e18311046f4189eec2",
+        "rev": "d985d86a70f2028e2248e9795949e57e196ade59",
         "type": "github"
       },
       "original": {
