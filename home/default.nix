@@ -32,6 +32,7 @@ in {
     enable = true;
     package = pkgs.firefox-devedition-bin;
     extraEngines = (import ./firefox-da.nix { });
+    configPath = "Library/Application Support/Firefox";
   };
   programs.t-emacs.enable = true;
   programs.t-nvim.enable = true;
