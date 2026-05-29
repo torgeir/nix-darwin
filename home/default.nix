@@ -11,6 +11,7 @@ in {
     ./docker.nix
     ./gw.nix
     ./git.nix
+    ./mail.nix
     ./fonts.nix
     ./skhd.nix
     ./aerospace.nix
