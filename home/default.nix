@@ -64,9 +64,6 @@ in {
 
     openconnect
 
-    # gemma etc needs newer ollama
-    pkgs.unstable.ollama
-
     pkgs.unstable.nerd-fonts.iosevka
     pkgs.unstable.nerd-fonts.iosevka-term
 
