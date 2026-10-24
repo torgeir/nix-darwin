@@ -10,7 +10,7 @@
     # colima start --vz-rosetta for emulating x86 (sql server need this)
 
     docker
-    pkgs.unstable.docker-sbx
+    #pkgs.unstable.docker-sbx
     docker-compose
     docker-credential-helpers
   ];
