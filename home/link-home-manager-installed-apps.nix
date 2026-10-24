@@ -13,7 +13,7 @@
       apps = pkgs.buildEnv {
         name = "home-manager-applications";
         paths = config.home.packages;
-        pathsToLink = "/Applications";
+        pathsToLink = [ "/Applications" ];
       };
     in lib.hm.dag.entryAfter [ "linkGeneration" ] ''
       echo "Linking Home Manager applications..." 2>&1
@@ -21,7 +21,10 @@
       tmp_path="$(mktemp -dt "home-manager-applications.XXXXXXXXXX")" || exit 1
       ${pkgs.fd}/bin/fd \
         -t l -d 1 . ${apps}/Applications \
-      	-x $DRY_RUN_CMD ${pkgs.mkAlias} -L {} "$tmp_path/{/}"
+        -x ${pkgs.bash}/bin/bash -c '
+          # mkalias from nixpkgs has no -L, resolve the symlink ourselves
+          $3 ${pkgs.mkAlias} "$(${pkgs.coreutils}/bin/readlink -f "$1")" "$2"
+        ' _ {} "$tmp_path/{/}" "$DRY_RUN_CMD"
       $DRY_RUN_CMD rm -rf "$app_path"
 
       $DRY_RUN_CMD mkdir -p "$app_path"

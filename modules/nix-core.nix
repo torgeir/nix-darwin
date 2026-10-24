@@ -3,9 +3,11 @@
   # enable flakes globally
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # auto upgrade nix package and the daemon service.
-  services.nix-daemon.enable = true;
+  # nix-darwin manages the daemon when nix.enable is on (default)
   nix.package = pkgs.nix;
+
+  # existing install uses the old default nixbld gid (new default is 350)
+  ids.gids.nixbld = 30000;
   programs.nix-index.enable = true;
 
   # clean up every once in a while

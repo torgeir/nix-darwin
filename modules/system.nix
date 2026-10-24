@@ -9,7 +9,7 @@
       if ! sudo -n true 2>/dev/null; then
         open --wait-apps -a Privileges.app
       fi
-      darwin-rebuild switch --flake ~/.config/nix-darwin
+      sudo darwin-rebuild switch --flake ~/.config/nix-darwin "$@"
     '')
   ];
 
@@ -18,10 +18,12 @@
     # activationScripts are executed every time you boot the system
     # or run `nixos-rebuild` / `darwin-rebuild`.
 
-    activationScripts.postUserActivation.text = ''
+    primaryUser = "torgeir";
+
+    activationScripts.postActivation.text = ''
       echo "Reduce Menu Bar padding"
-      defaults write -globalDomain NSStatusItemSelectionPadding -int 0
-      defaults write -globalDomain NSStatusItemSpacing -int 0
+      sudo -u ${config.system.primaryUser} defaults write -globalDomain NSStatusItemSelectionPadding -int 0
+      sudo -u ${config.system.primaryUser} defaults write -globalDomain NSStatusItemSpacing -int 0
       # revert it
       #defaults -currentHost delete -globalDomain NSStatusItemSelectionPadding
       #defaults -currentHost delete -globalDomain NSStatusItemSpacing
@@ -29,7 +31,7 @@
       # activateSettings -u will reload the settings from the database and apply
       # them to the current session, so we do not need to logout and login again
       # to make the changes take effect, or kill ControlCenter
-      /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+      sudo -u ${config.system.primaryUser} /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
     '';
 
     keyboard.enableKeyMapping = true;
@@ -95,7 +97,7 @@
   };
 
   # touchid for sudo authentication
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   # create /etc/zshrc that loads the nix-darwin environment,
   # required if you want to use darwin's default shell - zsh

@@ -6,7 +6,7 @@ stdenvNoCC.mkDerivation rec {
   version = "v1.0.3";
 
   nativeBuildInputs = [ pkgs.makeWrapper ];
-  buildInputs = with pkgs.python310Packages; [ python ];
+  buildInputs = with pkgs.python3Packages; [ python ];
 
   src = builtins.fetchTarball {
     url = "https://github.com/gdubw/gng/archive/refs/tags/${version}.tar.gz";

@@ -3,13 +3,13 @@
 
   # format https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-flake.html#examples
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-24.11-darwin";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-26.05-darwin";
     darwin = {
-      url = "github:LnL7/nix-darwin/nix-darwin-24.11";
+      url = "github:nix-darwin/nix-darwin/nix-darwin-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -17,21 +17,24 @@
     #   nix flake lock --update-input nixpkgs-firefox-darwin
     nixpkgs-firefox-darwin.url = "github:bandithedoge/nixpkgs-firefox-darwin";
 
-    mkAlias = {
-      url = "github:cdmistman/mkAlias";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-locked.url =
-      "github:NixOS/nixpkgs/1042fd8b148a9105f3c0aca3a6177fd1d9360ba5";
+    nixpkgs-locked.url = "github:NixOS/nixpkgs/1042fd8b148a9105f3c0aca3a6177fd1d9360ba5";
 
     nix-home-manager.url = "github:torgeir/nix-home-manager";
     dotfiles.url = "github:torgeir/dotfiles";
   };
 
-  outputs = inputs@{ self, nixpkgs, darwin, home-manager, nix-home-manager
-    , dotfiles, ... }: {
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      darwin,
+      home-manager,
+      nix-home-manager,
+      dotfiles,
+      ...
+    }:
+    {
       darwinConfigurations."bekk-mac-03257" = darwin.lib.darwinSystem {
         system = "aarch64-darwin"; # apple silicon
         specialArgs = { inherit inputs; };
@@ -61,8 +64,7 @@
 
               (final: prev: {
                 # https://github.com/nix-community/home-manager/issues/1341#issuecomment-1468889352
-                mkAlias =
-                  inputs.mkAlias.outputs.apps.${prev.system}.default.program;
+                mkAlias = "${prev.mkalias}/bin/mkalias";
               })
 
             ];

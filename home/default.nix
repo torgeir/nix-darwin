@@ -31,8 +31,12 @@ in {
 
   programs.t-firefox = {
     enable = true;
-    package = pkgs.firefox-devedition-bin;
+    # the .app derivation is not a nixpkgs wrapper, so home-manager's
+    # wrapper overrides (cfg, extraPolicies, ..) must not reach mkDerivation
+    package = let pkg = pkgs.firefox-devedition-bin;
+    in pkg // { override = _: pkg; };
     extraEngines = (import ./firefox-da.nix { });
+    legacyExtensions = false;
     configPath = "Library/Application Support/Firefox";
   };
   programs.t-emacs.enable = true;
