@@ -99,6 +99,10 @@
   # touchid for sudo authentication
   security.pam.services.sudo_local.touchIdAuth = true;
 
+  # dont trust emudhra certs
+  security.pki.caCertificateBlacklist =
+    [ "Comodo AAA Services root" "emSign ECC Root CA - G3" ];
+
   # create /etc/zshrc that loads the nix-darwin environment,
   # required if you want to use darwin's default shell - zsh
   programs.zsh.enable = true;
