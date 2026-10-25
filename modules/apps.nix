@@ -10,7 +10,7 @@
   environment.systemPackages = with pkgs; [
     pkgs.unstable.git
     nixd # nix language server
-    nixfmt-classic
+    nixfmt
   ];
 
   # To make this work, homebrew need to be installed manually, see

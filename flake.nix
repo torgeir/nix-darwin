@@ -49,7 +49,7 @@
               # "https://github.com/ne9z/dotfiles-flake/blob/d3159df136294675ccea340623c7c363b3584e0d/configuration.nix"
               (final: prev: {
                 unstable = import inputs.nixpkgs-unstable {
-                  system = prev.system;
+                  system = prev.stdenv.hostPlatform.system;
                   config.allowUnfree = true;
                 };
               })
@@ -57,7 +57,7 @@
               (final: prev: {
                 # pkgs.unstable-locked.<something>
                 unstable-locked = import inputs.nixpkgs-locked {
-                  system = prev.system;
+                  system = prev.stdenv.hostPlatform.system;
                   config.allowUnfree = true;
                 };
               })
